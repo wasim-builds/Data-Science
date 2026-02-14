@@ -14,7 +14,11 @@
         "numpy",
         "matplotlib",
         "seaborn",
-        "plotly"
+        "plotly",
+        "Wasim",
+        "NONINFRINGEMENT",
+        "Undeploy",
+        "Undeployment"
     ],
     "ltex.dictionary": {
         "en-US": [
@@ -32,7 +36,11 @@
             "numpy",
             "matplotlib",
             "seaborn",
-            "plotly"
+            "plotly",
+            "Wasim",
+            "NONINFRINGEMENT",
+            "Undeploy",
+            "Undeployment"
         ]
     }
 }
