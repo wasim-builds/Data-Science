@@ -10,3 +10,4 @@ openpyxl
 ipykernel
 nbformat
 pyyaml
+docutils<0.19
