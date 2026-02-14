@@ -24,21 +24,21 @@ A comprehensive, hands-on learning path for aspiring data analysts. This roadmap
 ## 🎯 Learning Path
 
 ### Phase 1: Foundations (Weeks 1-4)
-- **[Module 00: Setup & Environment](00_setup/)** - Configure your workspace.
-- **[Module 01: Python Basics](01_python_basics/)** - Master the syntax and core concepts.
-- **[Module 02: NumPy](02_numpy/)** - High-performance numerical computing.
-- **[Module 03: Pandas](03_pandas/)** - Data manipulation and analysis.
+- **[Module 00: Setup & Environment](data-analyst-roadmap/00_setup/)** - Configure your workspace.
+- **[Module 01: Python Basics](data-analyst-roadmap/01_python_basics/)** - Master the syntax and core concepts.
+- **[Module 02: NumPy](data-analyst-roadmap/02_numpy/)** - High-performance numerical computing.
+- **[Module 03: Pandas](data-analyst-roadmap/03_pandas/)** - Data manipulation and analysis.
 
 ### Phase 2: Analysis & Visualization (Weeks 5-8)
-- **[Module 04: Data Visualization](04_data_visualization/)** - Create stunning plots with Matplotlib & Seaborn.
-- **[Module 05: Statistics](05_statistics/)** - Statistical foundations for analysis.
-- **[Module 06: SQL for Analytics](06_sql_for_analytics/)** - Querying databases effectively.
-- **[Module 07: Excel for Analysts](07_excel_for_analysts/)** - Advanced Excel techniques.
+- **[Module 04: Data Visualization](data-analyst-roadmap/04_data_visualization/)** - Create stunning plots with Matplotlib & Seaborn.
+- **[Module 05: Statistics](data-analyst-roadmap/05_statistics/)** - Statistical foundations for analysis.
+- **[Module 06: SQL for Analytics](data-analyst-roadmap/06_sql_for_analytics/)** - Querying databases effectively.
+- **[Module 07: Excel for Analysts](data-analyst-roadmap/07_excel_for_analysts/)** - Advanced Excel techniques.
 
 ### Phase 3: Real-World Application (Weeks 9-12)
-- **[Module 08: Data Cleaning Projects](08_data_cleaning_projects/)** - Prepare real-world data for analysis.
-- **[Module 09: End-to-End Projects](09_end_to_end_projects/)** - Capstone projects to build your portfolio.
-- **[Module 10: Machine Learning Basics](10_machine_learning_basics/)** - Introduction to predictive modeling.
+- **[Module 08: Data Cleaning Projects](data-analyst-roadmap/08_data_cleaning_projects/)** - Prepare real-world data for analysis.
+- **[Module 09: End-to-End Projects](data-analyst-roadmap/09_end_to_end_projects/)** - Capstone projects to build your portfolio.
+- **[Module 10: Machine Learning Basics](data-analyst-roadmap/10_machine_learning_basics/)** - Introduction to predictive modeling.
 
 ---
 
@@ -48,10 +48,10 @@ Applying what you've learned to solve real-world problems.
 
 | Project | Description | Tech Stack |
 |---------|-------------|------------|
-| **[Sales Analysis](09_end_to_end_projects/sales_analysis/)** | Analyze revenue trends and customer segmentation. | Pandas, Matplotlib |
-| **[COVID-19 Analysis](09_end_to_end_projects/covid_analysis/)** | Track pandemic trends with time-series analysis. | Plotly, Pandas |
-| **[E-commerce Analysis](09_end_to_end_projects/ecommerce_analysis/)** | Understand customer behavior and product performance. | Seaborn, Scikit-learn |
-| **[Finance Dashboard](09_end_to_end_projects/finance_dashboard/)** | Portfolio analysis and risk metrics visualization. | Streamlit/Dash, Pandas |
+| **[Sales Analysis](data-analyst-roadmap/09_end_to_end_projects/sales_analysis/)** | Analyze revenue trends and customer segmentation. | Pandas, Matplotlib |
+| **[COVID-19 Analysis](data-analyst-roadmap/09_end_to_end_projects/covid_analysis/)** | Track pandemic trends with time-series analysis. | Plotly, Pandas |
+| **[E-commerce Analysis](data-analyst-roadmap/09_end_to_end_projects/ecommerce_analysis/)** | Understand customer behavior and product performance. | Seaborn, Scikit-learn |
+| **[Finance Dashboard](data-analyst-roadmap/09_end_to_end_projects/finance_dashboard/)** | Portfolio analysis and risk metrics visualization. | Streamlit/Dash, Pandas |
 
 ---
 
@@ -71,13 +71,13 @@ Applying what you've learned to solve real-world problems.
 
 2.  **Set up the environment**
     ```bash
-    conda env create -f 00_setup/environment.yml
+    conda env create -f data-analyst-roadmap/00_setup/environment.yml
     conda activate data-analyst
     ```
 
 3.  **Install dependencies**
     ```bash
-    pip install -r requirements.txt
+    pip install -r data-analyst-roadmap/requirements.txt
     ```
 
 4.  **Launch Jupyter Notebook**

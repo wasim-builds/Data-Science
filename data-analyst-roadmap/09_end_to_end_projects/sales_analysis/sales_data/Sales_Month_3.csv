@@ -1,0 +1,650 @@
+Order ID,Product,Quantity Ordered,Price Each,Order Date,Purchase Address
+1000,Macbook Pro,4,1871.69,2023-03-01 00:00:00,Los Angeles
+1001,USB-C Cable,2,1908.17,2023-03-01 01:00:00,Boston
+1002,Macbook Pro,1,1182.38,2023-03-01 02:00:00,New York
+1003,ThinkPad,4,1858.68,2023-03-01 03:00:00,Los Angeles
+1004,iPhone,4,578.91,2023-03-01 04:00:00,Boston
+1005,Lightning Cable,4,56.37,2023-03-01 05:00:00,San Francisco
+1006,Lightning Cable,4,1707.74,2023-03-01 06:00:00,Boston
+1007,Headphones,4,410.42,2023-03-01 07:00:00,Boston
+1008,Lightning Cable,4,1255.45,2023-03-01 08:00:00,Chicago
+1009,Lightning Cable,1,752.84,2023-03-01 09:00:00,New York
+1010,Headphones,1,1663.07,2023-03-01 10:00:00,Boston
+1011,iPhone,4,26.49,2023-03-01 11:00:00,San Francisco
+1012,USB-C Cable,3,1016.16,2023-03-01 12:00:00,Chicago
+1013,USB-C Cable,2,894.55,2023-03-01 13:00:00,Chicago
+1014,Headphones,4,747.82,2023-03-01 14:00:00,Los Angeles
+1015,Lightning Cable,1,192.04,2023-03-01 15:00:00,New York
+1016,USB-C Cable,4,1956.75,2023-03-01 16:00:00,Chicago
+1017,USB-C Cable,1,1854.31,2023-03-01 17:00:00,Chicago
+1018,Headphones,2,1419.81,2023-03-01 18:00:00,Los Angeles
+1019,Monitor,4,391.8,2023-03-01 19:00:00,San Francisco
+1020,USB-C Cable,2,314.27,2023-03-01 20:00:00,San Francisco
+1021,USB-C Cable,3,1327.29,2023-03-01 21:00:00,Boston
+1022,Lightning Cable,1,1872.81,2023-03-01 22:00:00,Chicago
+1023,Lightning Cable,2,1609.03,2023-03-01 23:00:00,Boston
+1024,Monitor,2,1524.32,2023-03-02 00:00:00,Austin
+1025,Macbook Pro,4,1368.58,2023-03-02 01:00:00,Boston
+1026,Headphones,3,1951.58,2023-03-02 02:00:00,Boston
+1027,USB-C Cable,2,1158.55,2023-03-02 03:00:00,Los Angeles
+1028,Lightning Cable,1,991.47,2023-03-02 04:00:00,San Francisco
+1029,USB-C Cable,1,870.12,2023-03-02 05:00:00,Los Angeles
+1030,USB-C Cable,2,1038.79,2023-03-02 06:00:00,San Francisco
+1031,USB-C Cable,1,1502.26,2023-03-02 07:00:00,Austin
+1032,Google Pixel,3,615.86,2023-03-02 08:00:00,Los Angeles
+1033,Lightning Cable,4,1955.1,2023-03-02 09:00:00,San Francisco
+1034,USB-C Cable,2,1567.12,2023-03-02 10:00:00,Austin
+1035,USB-C Cable,3,1815.49,2023-03-02 11:00:00,New York
+1036,Lightning Cable,3,1846.46,2023-03-02 12:00:00,Chicago
+1037,USB-C Cable,1,1547.32,2023-03-02 13:00:00,Chicago
+1038,Monitor,1,690.3,2023-03-02 14:00:00,San Francisco
+1039,USB-C Cable,4,488.71,2023-03-02 15:00:00,Chicago
+1040,Lightning Cable,3,15.61,2023-03-02 16:00:00,San Francisco
+1041,USB-C Cable,1,1039.63,2023-03-02 17:00:00,Chicago
+1042,Lightning Cable,3,1844.8,2023-03-02 18:00:00,Austin
+1043,USB-C Cable,4,39.47,2023-03-02 19:00:00,Los Angeles
+1044,USB-C Cable,4,1588.22,2023-03-02 20:00:00,Boston
+1045,USB-C Cable,2,895.78,2023-03-02 21:00:00,Los Angeles
+1046,USB-C Cable,4,1803.61,2023-03-02 22:00:00,Boston
+1047,Lightning Cable,2,924.77,2023-03-02 23:00:00,New York
+1048,Lightning Cable,2,1296.21,2023-03-03 00:00:00,San Francisco
+1049,Monitor,3,1161.04,2023-03-03 01:00:00,New York
+1050,Lightning Cable,1,23.85,2023-03-03 02:00:00,San Francisco
+1051,iPhone,4,510.22,2023-03-03 03:00:00,Los Angeles
+1052,Macbook Pro,2,189.17,2023-03-03 04:00:00,Austin
+1053,iPhone,4,547.25,2023-03-03 05:00:00,Austin
+1054,ThinkPad,1,918.85,2023-03-03 06:00:00,Chicago
+1055,USB-C Cable,3,1502.97,2023-03-03 07:00:00,Chicago
+1056,Lightning Cable,3,1188.18,2023-03-03 08:00:00,San Francisco
+1057,Lightning Cable,3,1744.07,2023-03-03 09:00:00,San Francisco
+1058,Lightning Cable,1,911.61,2023-03-03 10:00:00,Chicago
+1059,Lightning Cable,4,1841.42,2023-03-03 11:00:00,San Francisco
+1060,Headphones,3,1702.4,2023-03-03 12:00:00,San Francisco
+1061,Lightning Cable,2,426.99,2023-03-03 13:00:00,Los Angeles
+1062,USB-C Cable,2,1335.08,2023-03-03 14:00:00,Chicago
+1063,USB-C Cable,3,407.48,2023-03-03 15:00:00,Boston
+1064,Lightning Cable,1,183.9,2023-03-03 16:00:00,Boston
+1065,Headphones,2,163.3,2023-03-03 17:00:00,Austin
+1066,USB-C Cable,3,158.66,2023-03-03 18:00:00,Boston
+1067,USB-C Cable,1,764.16,2023-03-03 19:00:00,New York
+1068,USB-C Cable,3,132.44,2023-03-03 20:00:00,Boston
+1069,ThinkPad,4,251.34,2023-03-03 21:00:00,San Francisco
+1070,USB-C Cable,4,649.91,2023-03-03 22:00:00,Los Angeles
+1071,Lightning Cable,4,1684.08,2023-03-03 23:00:00,Austin
+1072,USB-C Cable,1,727.26,2023-03-04 00:00:00,Austin
+1073,Monitor,2,139.09,2023-03-04 01:00:00,Boston
+1074,Monitor,4,451.72,2023-03-04 02:00:00,Chicago
+1075,ThinkPad,1,1824.9,2023-03-04 03:00:00,New York
+1076,USB-C Cable,3,1801.63,2023-03-04 04:00:00,Austin
+1077,Monitor,4,1141.91,2023-03-04 05:00:00,Austin
+1078,Monitor,3,1388.0,2023-03-04 06:00:00,San Francisco
+1079,Headphones,2,643.6,2023-03-04 07:00:00,San Francisco
+1080,Lightning Cable,3,1971.1,2023-03-04 08:00:00,Austin
+1081,Lightning Cable,1,1749.16,2023-03-04 09:00:00,Boston
+1082,Headphones,1,1090.19,2023-03-04 10:00:00,San Francisco
+1083,USB-C Cable,3,551.43,2023-03-04 11:00:00,San Francisco
+1084,Monitor,2,1850.37,2023-03-04 12:00:00,Austin
+1085,Lightning Cable,1,449.52,2023-03-04 13:00:00,Chicago
+1086,Monitor,3,1088.57,2023-03-04 14:00:00,Los Angeles
+1087,Lightning Cable,2,975.4,2023-03-04 15:00:00,Los Angeles
+1088,ThinkPad,3,1047.37,2023-03-04 16:00:00,Los Angeles
+1089,Monitor,2,380.09,2023-03-04 17:00:00,New York
+1090,Lightning Cable,1,411.05,2023-03-04 18:00:00,Boston
+1091,Headphones,2,653.01,2023-03-04 19:00:00,New York
+1092,USB-C Cable,4,1221.2,2023-03-04 20:00:00,Chicago
+1093,Lightning Cable,1,1118.76,2023-03-04 21:00:00,Los Angeles
+1094,USB-C Cable,4,464.01,2023-03-04 22:00:00,San Francisco
+1095,Headphones,2,593.03,2023-03-04 23:00:00,Boston
+1096,Monitor,3,437.54,2023-03-05 00:00:00,Austin
+1097,Lightning Cable,2,553.36,2023-03-05 01:00:00,Boston
+1098,Lightning Cable,4,450.91,2023-03-05 02:00:00,San Francisco
+1099,Monitor,1,179.3,2023-03-05 03:00:00,New York
+1100,Lightning Cable,2,611.96,2023-03-05 04:00:00,Chicago
+1101,USB-C Cable,3,1157.81,2023-03-05 05:00:00,San Francisco
+1102,Headphones,4,1201.52,2023-03-05 06:00:00,Austin
+1103,Monitor,2,737.81,2023-03-05 07:00:00,Chicago
+1104,Lightning Cable,1,670.75,2023-03-05 08:00:00,Boston
+1105,Lightning Cable,2,1558.99,2023-03-05 09:00:00,Los Angeles
+1106,USB-C Cable,3,434.53,2023-03-05 10:00:00,New York
+1107,USB-C Cable,2,214.84,2023-03-05 11:00:00,Los Angeles
+1108,Headphones,1,1824.45,2023-03-05 12:00:00,Chicago
+1109,ThinkPad,2,410.04,2023-03-05 13:00:00,Austin
+1110,ThinkPad,3,1098.9,2023-03-05 14:00:00,Boston
+1111,Lightning Cable,3,236.23,2023-03-05 15:00:00,New York
+1112,Lightning Cable,1,741.49,2023-03-05 16:00:00,San Francisco
+1113,Lightning Cable,1,1657.96,2023-03-05 17:00:00,Austin
+1114,Lightning Cable,2,1595.27,2023-03-05 18:00:00,Boston
+1115,Lightning Cable,3,1114.83,2023-03-05 19:00:00,San Francisco
+1116,Lightning Cable,4,1241.82,2023-03-05 20:00:00,New York
+1117,USB-C Cable,2,1218.21,2023-03-05 21:00:00,Los Angeles
+1118,USB-C Cable,4,515.22,2023-03-05 22:00:00,Austin
+1119,Headphones,4,726.79,2023-03-05 23:00:00,San Francisco
+1120,Monitor,2,1161.78,2023-03-06 00:00:00,San Francisco
+1121,iPhone,1,1484.85,2023-03-06 01:00:00,Chicago
+1122,Google Pixel,2,1523.49,2023-03-06 02:00:00,Chicago
+1123,Lightning Cable,4,1316.93,2023-03-06 03:00:00,Los Angeles
+1124,Lightning Cable,3,1680.32,2023-03-06 04:00:00,Chicago
+1125,iPhone,3,1344.18,2023-03-06 05:00:00,New York
+1126,Lightning Cable,4,977.25,2023-03-06 06:00:00,Chicago
+1127,Macbook Pro,4,168.71,2023-03-06 07:00:00,Chicago
+1128,Headphones,2,155.91,2023-03-06 08:00:00,Boston
+1129,Lightning Cable,3,563.45,2023-03-06 09:00:00,San Francisco
+1130,iPhone,2,1129.05,2023-03-06 10:00:00,Austin
+1131,USB-C Cable,1,1052.64,2023-03-06 11:00:00,San Francisco
+1132,Monitor,2,1506.32,2023-03-06 12:00:00,Boston
+1133,Lightning Cable,1,1708.69,2023-03-06 13:00:00,Los Angeles
+1134,Lightning Cable,4,1331.3,2023-03-06 14:00:00,Boston
+1135,Lightning Cable,2,98.43,2023-03-06 15:00:00,San Francisco
+1136,Lightning Cable,3,950.06,2023-03-06 16:00:00,Chicago
+1137,iPhone,4,1848.04,2023-03-06 17:00:00,San Francisco
+1138,Lightning Cable,2,741.43,2023-03-06 18:00:00,New York
+1139,Headphones,1,875.91,2023-03-06 19:00:00,San Francisco
+1140,Headphones,2,118.56,2023-03-06 20:00:00,Los Angeles
+1141,iPhone,4,1786.61,2023-03-06 21:00:00,Los Angeles
+1142,Headphones,3,932.35,2023-03-06 22:00:00,Austin
+1143,USB-C Cable,4,263.85,2023-03-06 23:00:00,Boston
+1144,ThinkPad,4,580.08,2023-03-07 00:00:00,Los Angeles
+1145,Lightning Cable,4,857.64,2023-03-07 01:00:00,San Francisco
+1146,USB-C Cable,4,935.97,2023-03-07 02:00:00,Boston
+1147,Lightning Cable,1,822.29,2023-03-07 03:00:00,Austin
+1148,Lightning Cable,4,296.38,2023-03-07 04:00:00,Boston
+1149,Lightning Cable,4,937.36,2023-03-07 05:00:00,Los Angeles
+1150,Headphones,1,226.39,2023-03-07 06:00:00,Los Angeles
+1151,Headphones,2,591.06,2023-03-07 07:00:00,Los Angeles
+1152,USB-C Cable,1,511.91,2023-03-07 08:00:00,Los Angeles
+1153,Macbook Pro,4,1571.43,2023-03-07 09:00:00,Chicago
+1154,Google Pixel,4,1878.43,2023-03-07 10:00:00,San Francisco
+1155,Lightning Cable,4,1319.53,2023-03-07 11:00:00,Austin
+1156,USB-C Cable,1,1559.3,2023-03-07 12:00:00,Chicago
+1157,Lightning Cable,1,261.65,2023-03-07 13:00:00,San Francisco
+1158,Monitor,4,1341.85,2023-03-07 14:00:00,Austin
+1159,ThinkPad,3,427.32,2023-03-07 15:00:00,Chicago
+1160,Lightning Cable,2,28.12,2023-03-07 16:00:00,Los Angeles
+1161,Lightning Cable,3,1168.78,2023-03-07 17:00:00,Austin
+1162,USB-C Cable,4,1678.77,2023-03-07 18:00:00,New York
+1163,USB-C Cable,3,732.14,2023-03-07 19:00:00,Los Angeles
+1164,USB-C Cable,1,502.68,2023-03-07 20:00:00,New York
+1165,USB-C Cable,4,516.0,2023-03-07 21:00:00,New York
+1166,Monitor,3,923.76,2023-03-07 22:00:00,New York
+1167,Headphones,2,237.2,2023-03-07 23:00:00,Boston
+1168,ThinkPad,4,1916.03,2023-03-08 00:00:00,Boston
+1169,USB-C Cable,4,1200.4,2023-03-08 01:00:00,Boston
+1170,Monitor,2,339.24,2023-03-08 02:00:00,Boston
+1171,Lightning Cable,1,1583.04,2023-03-08 03:00:00,Austin
+1172,Lightning Cable,1,1421.64,2023-03-08 04:00:00,Boston
+1173,Lightning Cable,2,702.08,2023-03-08 05:00:00,Los Angeles
+1174,USB-C Cable,3,1629.55,2023-03-08 06:00:00,Boston
+1175,Lightning Cable,3,793.78,2023-03-08 07:00:00,Boston
+1176,Lightning Cable,1,1024.91,2023-03-08 08:00:00,Austin
+1177,Lightning Cable,1,708.1,2023-03-08 09:00:00,New York
+1178,USB-C Cable,2,879.38,2023-03-08 10:00:00,New York
+1179,USB-C Cable,1,1390.03,2023-03-08 11:00:00,Chicago
+1180,USB-C Cable,4,1220.49,2023-03-08 12:00:00,Los Angeles
+1181,iPhone,4,542.81,2023-03-08 13:00:00,San Francisco
+1182,Lightning Cable,2,1205.91,2023-03-08 14:00:00,Austin
+1183,Headphones,2,1719.88,2023-03-08 15:00:00,Boston
+1184,Headphones,4,1777.35,2023-03-08 16:00:00,Los Angeles
+1185,Lightning Cable,4,439.51,2023-03-08 17:00:00,New York
+1186,Google Pixel,4,1456.69,2023-03-08 18:00:00,Boston
+1187,Lightning Cable,1,1858.58,2023-03-08 19:00:00,Los Angeles
+1188,Lightning Cable,4,688.45,2023-03-08 20:00:00,Boston
+1189,Headphones,3,1975.22,2023-03-08 21:00:00,Chicago
+1190,Lightning Cable,4,1497.32,2023-03-08 22:00:00,San Francisco
+1191,Lightning Cable,4,1347.24,2023-03-08 23:00:00,New York
+1192,USB-C Cable,2,849.7,2023-03-09 00:00:00,New York
+1193,Headphones,2,384.07,2023-03-09 01:00:00,New York
+1194,Google Pixel,4,1849.76,2023-03-09 02:00:00,Chicago
+1195,Lightning Cable,1,1251.35,2023-03-09 03:00:00,Austin
+1196,Lightning Cable,3,66.28,2023-03-09 04:00:00,San Francisco
+1197,Lightning Cable,1,515.06,2023-03-09 05:00:00,Boston
+1198,Lightning Cable,1,1849.56,2023-03-09 06:00:00,San Francisco
+1199,Macbook Pro,2,160.43,2023-03-09 07:00:00,Los Angeles
+1200,Monitor,4,1687.0,2023-03-09 08:00:00,New York
+1201,iPhone,1,1358.44,2023-03-09 09:00:00,New York
+1202,iPhone,4,608.24,2023-03-09 10:00:00,Boston
+1203,Macbook Pro,3,233.09,2023-03-09 11:00:00,Los Angeles
+1204,USB-C Cable,2,131.6,2023-03-09 12:00:00,Boston
+1205,Monitor,3,1666.55,2023-03-09 13:00:00,San Francisco
+1206,USB-C Cable,2,682.4,2023-03-09 14:00:00,Los Angeles
+1207,iPhone,2,531.97,2023-03-09 15:00:00,New York
+1208,Lightning Cable,2,1442.72,2023-03-09 16:00:00,Boston
+1209,Lightning Cable,3,300.08,2023-03-09 17:00:00,New York
+1210,Lightning Cable,3,1484.76,2023-03-09 18:00:00,Austin
+1211,ThinkPad,1,1523.35,2023-03-09 19:00:00,Chicago
+1212,USB-C Cable,1,1170.42,2023-03-09 20:00:00,New York
+1213,Lightning Cable,4,873.47,2023-03-09 21:00:00,Austin
+1214,Headphones,2,1472.38,2023-03-09 22:00:00,Chicago
+1215,Google Pixel,1,1382.33,2023-03-09 23:00:00,Austin
+1216,USB-C Cable,1,1665.52,2023-03-10 00:00:00,San Francisco
+1217,Macbook Pro,2,399.16,2023-03-10 01:00:00,Austin
+1218,USB-C Cable,4,1629.27,2023-03-10 02:00:00,Boston
+1219,Lightning Cable,2,636.5,2023-03-10 03:00:00,Chicago
+1220,Headphones,2,960.36,2023-03-10 04:00:00,Boston
+1221,Monitor,4,811.81,2023-03-10 05:00:00,San Francisco
+1222,Headphones,2,1826.82,2023-03-10 06:00:00,Chicago
+1223,Headphones,3,1142.47,2023-03-10 07:00:00,Boston
+1224,Monitor,2,1680.91,2023-03-10 08:00:00,Boston
+1225,Headphones,1,1098.53,2023-03-10 09:00:00,Chicago
+1226,Lightning Cable,4,1467.77,2023-03-10 10:00:00,Los Angeles
+1227,USB-C Cable,3,1041.01,2023-03-10 11:00:00,Los Angeles
+1228,USB-C Cable,3,1694.46,2023-03-10 12:00:00,Chicago
+1229,Monitor,2,222.57,2023-03-10 13:00:00,Chicago
+1230,Lightning Cable,3,1426.66,2023-03-10 14:00:00,San Francisco
+1231,USB-C Cable,3,1123.56,2023-03-10 15:00:00,Chicago
+1232,Headphones,3,1941.35,2023-03-10 16:00:00,Boston
+1233,Macbook Pro,2,1047.52,2023-03-10 17:00:00,Austin
+1234,Headphones,3,1814.24,2023-03-10 18:00:00,Austin
+1235,Lightning Cable,3,654.17,2023-03-10 19:00:00,Los Angeles
+1236,USB-C Cable,1,754.56,2023-03-10 20:00:00,Chicago
+1237,Lightning Cable,2,1390.31,2023-03-10 21:00:00,Chicago
+1238,Macbook Pro,2,1888.27,2023-03-10 22:00:00,Chicago
+1239,Lightning Cable,1,80.29,2023-03-10 23:00:00,Boston
+1240,Macbook Pro,1,924.46,2023-03-11 00:00:00,Boston
+1241,Lightning Cable,3,11.61,2023-03-11 01:00:00,New York
+1242,Lightning Cable,3,1835.77,2023-03-11 02:00:00,Austin
+1243,iPhone,2,305.33,2023-03-11 03:00:00,Boston
+1244,Headphones,3,1163.91,2023-03-11 04:00:00,Austin
+1245,USB-C Cable,1,1318.05,2023-03-11 05:00:00,New York
+1246,Macbook Pro,2,487.89,2023-03-11 06:00:00,Los Angeles
+1247,Lightning Cable,3,178.15,2023-03-11 07:00:00,Los Angeles
+1248,Lightning Cable,3,964.47,2023-03-11 08:00:00,Los Angeles
+1249,Macbook Pro,1,1814.97,2023-03-11 09:00:00,San Francisco
+1250,Lightning Cable,1,58.44,2023-03-11 10:00:00,Los Angeles
+1251,Headphones,4,1379.6,2023-03-11 11:00:00,Chicago
+1252,USB-C Cable,3,198.64,2023-03-11 12:00:00,New York
+1253,iPhone,2,1525.86,2023-03-11 13:00:00,Los Angeles
+1254,Lightning Cable,2,148.11,2023-03-11 14:00:00,Los Angeles
+1255,USB-C Cable,2,1602.29,2023-03-11 15:00:00,New York
+1256,USB-C Cable,1,1957.25,2023-03-11 16:00:00,San Francisco
+1257,Lightning Cable,3,1943.35,2023-03-11 17:00:00,Chicago
+1258,Headphones,4,1021.2,2023-03-11 18:00:00,Los Angeles
+1259,Lightning Cable,1,717.34,2023-03-11 19:00:00,Chicago
+1260,Monitor,2,875.12,2023-03-11 20:00:00,Austin
+1261,Lightning Cable,3,1280.49,2023-03-11 21:00:00,Chicago
+1262,Lightning Cable,1,1234.65,2023-03-11 22:00:00,San Francisco
+1263,Monitor,1,468.38,2023-03-11 23:00:00,Boston
+1264,Lightning Cable,1,96.78,2023-03-12 00:00:00,Boston
+1265,Lightning Cable,4,938.59,2023-03-12 01:00:00,Chicago
+1266,Headphones,4,888.17,2023-03-12 02:00:00,San Francisco
+1267,Lightning Cable,3,664.32,2023-03-12 03:00:00,Chicago
+1268,Lightning Cable,3,218.16,2023-03-12 04:00:00,Boston
+1269,Lightning Cable,2,777.95,2023-03-12 05:00:00,New York
+1270,USB-C Cable,3,199.66,2023-03-12 06:00:00,Los Angeles
+1271,Lightning Cable,4,856.6,2023-03-12 07:00:00,Chicago
+1272,Lightning Cable,1,1413.41,2023-03-12 08:00:00,Austin
+1273,Headphones,1,1029.21,2023-03-12 09:00:00,San Francisco
+1274,USB-C Cable,1,68.95,2023-03-12 10:00:00,Los Angeles
+1275,Lightning Cable,2,1800.53,2023-03-12 11:00:00,New York
+1276,Headphones,3,775.21,2023-03-12 12:00:00,Los Angeles
+1277,Lightning Cable,1,1975.12,2023-03-12 13:00:00,Boston
+1278,USB-C Cable,4,1527.99,2023-03-12 14:00:00,New York
+1279,USB-C Cable,1,312.08,2023-03-12 15:00:00,Austin
+1280,Headphones,4,993.77,2023-03-12 16:00:00,San Francisco
+1281,Monitor,2,845.01,2023-03-12 17:00:00,San Francisco
+1282,iPhone,2,1803.88,2023-03-12 18:00:00,San Francisco
+1283,USB-C Cable,4,572.4,2023-03-12 19:00:00,Chicago
+1284,Headphones,4,1618.37,2023-03-12 20:00:00,Boston
+1285,Macbook Pro,1,1201.87,2023-03-12 21:00:00,San Francisco
+1286,Monitor,4,1228.55,2023-03-12 22:00:00,Boston
+1287,iPhone,1,940.91,2023-03-12 23:00:00,San Francisco
+1288,ThinkPad,4,447.48,2023-03-13 00:00:00,Austin
+1289,ThinkPad,2,698.45,2023-03-13 01:00:00,New York
+1290,Headphones,2,1583.27,2023-03-13 02:00:00,Austin
+1291,Headphones,2,1405.23,2023-03-13 03:00:00,Chicago
+1292,USB-C Cable,1,1281.98,2023-03-13 04:00:00,San Francisco
+1293,USB-C Cable,4,1334.88,2023-03-13 05:00:00,Los Angeles
+1294,Headphones,4,925.33,2023-03-13 06:00:00,San Francisco
+1295,USB-C Cable,1,1297.97,2023-03-13 07:00:00,San Francisco
+1296,Lightning Cable,4,1996.29,2023-03-13 08:00:00,Los Angeles
+1297,Lightning Cable,2,691.12,2023-03-13 09:00:00,Boston
+1298,Monitor,2,1266.59,2023-03-13 10:00:00,Chicago
+1299,Headphones,1,55.2,2023-03-13 11:00:00,Chicago
+1300,Headphones,3,127.94,2023-03-13 12:00:00,Los Angeles
+1301,iPhone,4,1662.33,2023-03-13 13:00:00,San Francisco
+1302,iPhone,1,1080.6,2023-03-13 14:00:00,Los Angeles
+1303,Lightning Cable,3,1822.34,2023-03-13 15:00:00,Chicago
+1304,Lightning Cable,1,1583.26,2023-03-13 16:00:00,Chicago
+1305,Google Pixel,4,540.69,2023-03-13 17:00:00,Austin
+1306,USB-C Cable,1,458.44,2023-03-13 18:00:00,Boston
+1307,Monitor,1,1807.42,2023-03-13 19:00:00,Chicago
+1308,Headphones,1,358.8,2023-03-13 20:00:00,San Francisco
+1309,ThinkPad,1,1608.4,2023-03-13 21:00:00,New York
+1310,Google Pixel,1,509.26,2023-03-13 22:00:00,San Francisco
+1311,ThinkPad,2,655.34,2023-03-13 23:00:00,New York
+1312,Monitor,2,192.97,2023-03-14 00:00:00,Los Angeles
+1313,Headphones,2,1665.7,2023-03-14 01:00:00,Boston
+1314,USB-C Cable,2,1096.32,2023-03-14 02:00:00,Chicago
+1315,Lightning Cable,4,1659.18,2023-03-14 03:00:00,Austin
+1316,Lightning Cable,1,1526.74,2023-03-14 04:00:00,Los Angeles
+1317,Headphones,4,361.36,2023-03-14 05:00:00,Boston
+1318,Headphones,4,537.21,2023-03-14 06:00:00,Chicago
+1319,Monitor,3,742.48,2023-03-14 07:00:00,New York
+1320,Lightning Cable,4,1748.04,2023-03-14 08:00:00,San Francisco
+1321,USB-C Cable,1,129.76,2023-03-14 09:00:00,San Francisco
+1322,Lightning Cable,2,450.75,2023-03-14 10:00:00,Chicago
+1323,Headphones,3,488.75,2023-03-14 11:00:00,Los Angeles
+1324,USB-C Cable,2,541.8,2023-03-14 12:00:00,Austin
+1325,USB-C Cable,2,945.62,2023-03-14 13:00:00,San Francisco
+1326,USB-C Cable,4,959.59,2023-03-14 14:00:00,Austin
+1327,Lightning Cable,4,1887.39,2023-03-14 15:00:00,San Francisco
+1328,USB-C Cable,4,1509.58,2023-03-14 16:00:00,Austin
+1329,Lightning Cable,2,707.91,2023-03-14 17:00:00,San Francisco
+1330,Monitor,1,1333.52,2023-03-14 18:00:00,San Francisco
+1331,Lightning Cable,1,644.46,2023-03-14 19:00:00,San Francisco
+1332,USB-C Cable,3,825.29,2023-03-14 20:00:00,San Francisco
+1333,Headphones,3,1120.8,2023-03-14 21:00:00,New York
+1334,Lightning Cable,4,1067.0,2023-03-14 22:00:00,San Francisco
+1335,Lightning Cable,2,460.56,2023-03-14 23:00:00,San Francisco
+1336,USB-C Cable,2,471.55,2023-03-15 00:00:00,Los Angeles
+1337,USB-C Cable,1,210.16,2023-03-15 01:00:00,Los Angeles
+1338,USB-C Cable,1,1341.94,2023-03-15 02:00:00,San Francisco
+1339,Lightning Cable,3,664.46,2023-03-15 03:00:00,San Francisco
+1340,Lightning Cable,4,739.23,2023-03-15 04:00:00,Boston
+1341,Lightning Cable,3,894.98,2023-03-15 05:00:00,Austin
+1342,iPhone,1,798.97,2023-03-15 06:00:00,New York
+1343,Headphones,2,286.5,2023-03-15 07:00:00,New York
+1344,ThinkPad,3,819.83,2023-03-15 08:00:00,Chicago
+1345,USB-C Cable,2,713.2,2023-03-15 09:00:00,Los Angeles
+1346,Macbook Pro,3,1682.59,2023-03-15 10:00:00,Boston
+1347,ThinkPad,3,1907.65,2023-03-15 11:00:00,Boston
+1348,Lightning Cable,2,435.57,2023-03-15 12:00:00,Austin
+1349,Google Pixel,4,1728.43,2023-03-15 13:00:00,New York
+1350,Lightning Cable,3,460.16,2023-03-15 14:00:00,Los Angeles
+1351,Headphones,2,1425.08,2023-03-15 15:00:00,New York
+1352,Lightning Cable,1,1984.74,2023-03-15 16:00:00,San Francisco
+1353,Lightning Cable,1,1584.09,2023-03-15 17:00:00,San Francisco
+1354,iPhone,4,460.85,2023-03-15 18:00:00,Chicago
+1355,Lightning Cable,3,1980.53,2023-03-15 19:00:00,Los Angeles
+1356,Lightning Cable,1,1798.96,2023-03-15 20:00:00,Los Angeles
+1357,Monitor,1,1806.97,2023-03-15 21:00:00,Boston
+1358,Headphones,3,19.82,2023-03-15 22:00:00,Boston
+1359,USB-C Cable,4,1960.74,2023-03-15 23:00:00,New York
+1360,Lightning Cable,2,1103.84,2023-03-16 00:00:00,San Francisco
+1361,USB-C Cable,3,191.55,2023-03-16 01:00:00,Los Angeles
+1362,Lightning Cable,1,1539.45,2023-03-16 02:00:00,Boston
+1363,USB-C Cable,4,1613.06,2023-03-16 03:00:00,Boston
+1364,Headphones,1,106.86,2023-03-16 04:00:00,Austin
+1365,Headphones,3,1597.74,2023-03-16 05:00:00,San Francisco
+1366,Lightning Cable,2,1267.11,2023-03-16 06:00:00,Boston
+1367,ThinkPad,3,472.59,2023-03-16 07:00:00,Boston
+1368,Headphones,3,1912.43,2023-03-16 08:00:00,New York
+1369,Lightning Cable,2,1079.2,2023-03-16 09:00:00,Los Angeles
+1370,iPhone,1,1944.34,2023-03-16 10:00:00,New York
+1371,Lightning Cable,3,1155.94,2023-03-16 11:00:00,Boston
+1372,USB-C Cable,2,1117.21,2023-03-16 12:00:00,Boston
+1373,Google Pixel,1,1100.32,2023-03-16 13:00:00,San Francisco
+1374,iPhone,3,346.71,2023-03-16 14:00:00,San Francisco
+1375,USB-C Cable,1,46.26,2023-03-16 15:00:00,Austin
+1376,USB-C Cable,1,1145.6,2023-03-16 16:00:00,Los Angeles
+1377,Lightning Cable,1,512.82,2023-03-16 17:00:00,Los Angeles
+1378,Lightning Cable,2,987.3,2023-03-16 18:00:00,Chicago
+1379,iPhone,3,1172.93,2023-03-16 19:00:00,Boston
+1380,ThinkPad,2,412.87,2023-03-16 20:00:00,Boston
+1381,iPhone,2,926.48,2023-03-16 21:00:00,Austin
+1382,USB-C Cable,1,1318.1,2023-03-16 22:00:00,Chicago
+1383,ThinkPad,4,1823.21,2023-03-16 23:00:00,San Francisco
+1384,Headphones,2,870.44,2023-03-17 00:00:00,Austin
+1385,Lightning Cable,2,1003.28,2023-03-17 01:00:00,Chicago
+1386,Headphones,1,892.63,2023-03-17 02:00:00,Austin
+1387,Lightning Cable,3,733.29,2023-03-17 03:00:00,San Francisco
+1388,Headphones,2,494.87,2023-03-17 04:00:00,San Francisco
+1389,Macbook Pro,3,1813.18,2023-03-17 05:00:00,New York
+1390,Monitor,4,1457.25,2023-03-17 06:00:00,San Francisco
+1391,USB-C Cable,1,446.51,2023-03-17 07:00:00,Chicago
+1392,Lightning Cable,3,1903.38,2023-03-17 08:00:00,Boston
+1393,Lightning Cable,1,339.66,2023-03-17 09:00:00,Austin
+1394,USB-C Cable,2,470.23,2023-03-17 10:00:00,Boston
+1395,Headphones,2,636.37,2023-03-17 11:00:00,Los Angeles
+1396,Headphones,4,1842.81,2023-03-17 12:00:00,Los Angeles
+1397,USB-C Cable,3,1616.24,2023-03-17 13:00:00,Los Angeles
+1398,USB-C Cable,4,653.32,2023-03-17 14:00:00,Los Angeles
+1399,USB-C Cable,2,1423.73,2023-03-17 15:00:00,San Francisco
+1400,USB-C Cable,4,1228.3,2023-03-17 16:00:00,Austin
+1401,USB-C Cable,4,200.37,2023-03-17 17:00:00,Chicago
+1402,Monitor,1,1165.84,2023-03-17 18:00:00,Boston
+1403,Headphones,3,1581.58,2023-03-17 19:00:00,Boston
+1404,USB-C Cable,3,997.44,2023-03-17 20:00:00,New York
+1405,USB-C Cable,4,1370.62,2023-03-17 21:00:00,Los Angeles
+1406,USB-C Cable,1,841.48,2023-03-17 22:00:00,New York
+1407,Lightning Cable,2,1308.0,2023-03-17 23:00:00,Los Angeles
+1408,Macbook Pro,2,508.87,2023-03-18 00:00:00,Chicago
+1409,USB-C Cable,3,128.21,2023-03-18 01:00:00,New York
+1410,Google Pixel,4,1700.72,2023-03-18 02:00:00,Los Angeles
+1411,Headphones,2,968.92,2023-03-18 03:00:00,Chicago
+1412,Macbook Pro,1,1725.85,2023-03-18 04:00:00,San Francisco
+1413,Lightning Cable,3,649.53,2023-03-18 05:00:00,Chicago
+1414,USB-C Cable,4,1895.17,2023-03-18 06:00:00,Boston
+1415,USB-C Cable,3,1412.23,2023-03-18 07:00:00,Boston
+1416,USB-C Cable,1,863.44,2023-03-18 08:00:00,Boston
+1417,USB-C Cable,4,586.96,2023-03-18 09:00:00,Chicago
+1418,USB-C Cable,4,832.16,2023-03-18 10:00:00,Chicago
+1419,Macbook Pro,4,366.13,2023-03-18 11:00:00,Boston
+1420,iPhone,4,1424.11,2023-03-18 12:00:00,Boston
+1421,USB-C Cable,3,1283.77,2023-03-18 13:00:00,Austin
+1422,USB-C Cable,1,1299.13,2023-03-18 14:00:00,Austin
+1423,Headphones,4,430.95,2023-03-18 15:00:00,Chicago
+1424,ThinkPad,1,1307.11,2023-03-18 16:00:00,New York
+1425,Headphones,1,219.61,2023-03-18 17:00:00,Los Angeles
+1426,Monitor,1,1412.71,2023-03-18 18:00:00,Los Angeles
+1427,Lightning Cable,4,1065.25,2023-03-18 19:00:00,Chicago
+1428,ThinkPad,2,1540.3,2023-03-18 20:00:00,San Francisco
+1429,Lightning Cable,2,1274.43,2023-03-18 21:00:00,Los Angeles
+1430,Lightning Cable,4,251.6,2023-03-18 22:00:00,New York
+1431,Lightning Cable,2,1054.28,2023-03-18 23:00:00,Los Angeles
+1432,Lightning Cable,1,1988.31,2023-03-19 00:00:00,Chicago
+1433,USB-C Cable,2,1283.63,2023-03-19 01:00:00,New York
+1434,Monitor,2,164.14,2023-03-19 02:00:00,New York
+1435,Headphones,2,1594.03,2023-03-19 03:00:00,San Francisco
+1436,iPhone,1,1830.17,2023-03-19 04:00:00,Boston
+1437,Lightning Cable,1,947.12,2023-03-19 05:00:00,Los Angeles
+1438,USB-C Cable,3,1254.03,2023-03-19 06:00:00,San Francisco
+1439,Lightning Cable,1,52.02,2023-03-19 07:00:00,New York
+1440,Lightning Cable,3,1489.19,2023-03-19 08:00:00,Los Angeles
+1441,Headphones,3,1234.23,2023-03-19 09:00:00,Austin
+1442,USB-C Cable,2,321.65,2023-03-19 10:00:00,New York
+1443,Lightning Cable,3,1532.43,2023-03-19 11:00:00,San Francisco
+1444,USB-C Cable,1,1582.44,2023-03-19 12:00:00,San Francisco
+1445,Lightning Cable,3,550.1,2023-03-19 13:00:00,Los Angeles
+1446,Lightning Cable,2,1324.27,2023-03-19 14:00:00,Los Angeles
+1447,Headphones,4,1580.67,2023-03-19 15:00:00,Boston
+1448,Headphones,1,847.94,2023-03-19 16:00:00,Los Angeles
+1449,Lightning Cable,1,1573.73,2023-03-19 17:00:00,San Francisco
+1450,USB-C Cable,3,983.61,2023-03-19 18:00:00,Los Angeles
+1451,USB-C Cable,4,732.41,2023-03-19 19:00:00,San Francisco
+1452,Lightning Cable,4,585.44,2023-03-19 20:00:00,Los Angeles
+1453,Headphones,3,172.44,2023-03-19 21:00:00,Los Angeles
+1454,Headphones,3,946.86,2023-03-19 22:00:00,Austin
+1455,iPhone,3,1973.43,2023-03-19 23:00:00,Chicago
+1456,iPhone,4,1267.58,2023-03-20 00:00:00,Chicago
+1457,iPhone,2,1993.09,2023-03-20 01:00:00,New York
+1458,Lightning Cable,3,428.42,2023-03-20 02:00:00,Boston
+1459,ThinkPad,3,1590.74,2023-03-20 03:00:00,Chicago
+1460,Lightning Cable,2,1603.11,2023-03-20 04:00:00,Austin
+1461,Headphones,3,152.58,2023-03-20 05:00:00,New York
+1462,Lightning Cable,4,816.91,2023-03-20 06:00:00,San Francisco
+1463,Lightning Cable,2,908.68,2023-03-20 07:00:00,New York
+1464,Monitor,1,1696.04,2023-03-20 08:00:00,New York
+1465,Headphones,4,934.14,2023-03-20 09:00:00,Chicago
+1466,USB-C Cable,2,1667.02,2023-03-20 10:00:00,Los Angeles
+1467,Lightning Cable,4,871.79,2023-03-20 11:00:00,New York
+1468,Lightning Cable,1,1795.31,2023-03-20 12:00:00,New York
+1469,Lightning Cable,4,1489.77,2023-03-20 13:00:00,San Francisco
+1470,USB-C Cable,4,1624.09,2023-03-20 14:00:00,San Francisco
+1471,Lightning Cable,4,456.72,2023-03-20 15:00:00,Chicago
+1472,Macbook Pro,1,783.8,2023-03-20 16:00:00,Los Angeles
+1473,Lightning Cable,3,203.81,2023-03-20 17:00:00,New York
+1474,Lightning Cable,1,1769.06,2023-03-20 18:00:00,Los Angeles
+1475,Lightning Cable,4,75.6,2023-03-20 19:00:00,Los Angeles
+1476,USB-C Cable,1,1850.61,2023-03-20 20:00:00,Boston
+1477,USB-C Cable,1,352.46,2023-03-20 21:00:00,New York
+1478,Headphones,4,591.64,2023-03-20 22:00:00,Chicago
+1479,USB-C Cable,3,1711.0,2023-03-20 23:00:00,Austin
+1480,Lightning Cable,3,837.44,2023-03-21 00:00:00,Boston
+1481,Lightning Cable,2,1964.09,2023-03-21 01:00:00,New York
+1482,Lightning Cable,1,1359.69,2023-03-21 02:00:00,Chicago
+1483,USB-C Cable,4,1902.08,2023-03-21 03:00:00,San Francisco
+1484,iPhone,2,451.62,2023-03-21 04:00:00,Chicago
+1485,iPhone,1,987.36,2023-03-21 05:00:00,Los Angeles
+1486,Lightning Cable,2,1955.49,2023-03-21 06:00:00,Boston
+1487,Headphones,3,889.66,2023-03-21 07:00:00,Austin
+1488,iPhone,4,742.04,2023-03-21 08:00:00,Los Angeles
+1489,USB-C Cable,1,1319.47,2023-03-21 09:00:00,Los Angeles
+1490,Lightning Cable,2,164.67,2023-03-21 10:00:00,Chicago
+1491,Macbook Pro,1,593.35,2023-03-21 11:00:00,Los Angeles
+1492,USB-C Cable,2,1622.54,2023-03-21 12:00:00,Los Angeles
+1493,Lightning Cable,4,1170.9,2023-03-21 13:00:00,Chicago
+1494,Headphones,4,1129.89,2023-03-21 14:00:00,Boston
+1495,Lightning Cable,2,1567.11,2023-03-21 15:00:00,Austin
+1496,Macbook Pro,4,1457.34,2023-03-21 16:00:00,New York
+1497,iPhone,3,803.11,2023-03-21 17:00:00,New York
+1498,USB-C Cable,2,1111.36,2023-03-21 18:00:00,Austin
+1499,Headphones,1,422.3,2023-03-21 19:00:00,Chicago
+1500,Monitor,4,1527.8,2023-03-21 20:00:00,Boston
+1501,USB-C Cable,3,1767.31,2023-03-21 21:00:00,San Francisco
+1502,Macbook Pro,4,22.23,2023-03-21 22:00:00,New York
+1503,iPhone,3,1895.31,2023-03-21 23:00:00,Los Angeles
+1504,Lightning Cable,1,629.28,2023-03-22 00:00:00,San Francisco
+1505,Lightning Cable,4,890.76,2023-03-22 01:00:00,Los Angeles
+1506,Lightning Cable,2,1374.47,2023-03-22 02:00:00,Boston
+1507,Headphones,1,1931.25,2023-03-22 03:00:00,New York
+1508,Lightning Cable,3,788.31,2023-03-22 04:00:00,Los Angeles
+1509,Headphones,2,342.91,2023-03-22 05:00:00,New York
+1510,ThinkPad,1,225.22,2023-03-22 06:00:00,New York
+1511,Lightning Cable,4,1495.69,2023-03-22 07:00:00,Austin
+1512,Lightning Cable,2,708.76,2023-03-22 08:00:00,New York
+1513,Lightning Cable,3,70.65,2023-03-22 09:00:00,New York
+1514,Headphones,3,1682.9,2023-03-22 10:00:00,San Francisco
+1515,ThinkPad,2,1756.47,2023-03-22 11:00:00,Chicago
+1516,USB-C Cable,2,652.33,2023-03-22 12:00:00,Boston
+1517,iPhone,1,266.66,2023-03-22 13:00:00,New York
+1518,Macbook Pro,4,1250.06,2023-03-22 14:00:00,San Francisco
+1519,iPhone,4,1121.43,2023-03-22 15:00:00,New York
+1520,ThinkPad,3,1642.52,2023-03-22 16:00:00,Los Angeles
+1521,USB-C Cable,2,1865.21,2023-03-22 17:00:00,Austin
+1522,USB-C Cable,4,1911.48,2023-03-22 18:00:00,Boston
+1523,Lightning Cable,4,1567.51,2023-03-22 19:00:00,Boston
+1524,Monitor,4,1928.56,2023-03-22 20:00:00,San Francisco
+1525,Monitor,4,955.32,2023-03-22 21:00:00,Austin
+1526,Monitor,1,1198.35,2023-03-22 22:00:00,Austin
+1527,Headphones,1,869.04,2023-03-22 23:00:00,New York
+1528,USB-C Cable,2,778.75,2023-03-23 00:00:00,Boston
+1529,Lightning Cable,1,540.12,2023-03-23 01:00:00,Boston
+1530,USB-C Cable,3,960.94,2023-03-23 02:00:00,Los Angeles
+1531,Headphones,3,648.72,2023-03-23 03:00:00,New York
+1532,Google Pixel,3,1329.63,2023-03-23 04:00:00,New York
+1533,Lightning Cable,1,504.73,2023-03-23 05:00:00,Austin
+1534,Lightning Cable,3,1739.77,2023-03-23 06:00:00,Austin
+1535,Headphones,4,467.67,2023-03-23 07:00:00,Chicago
+1536,USB-C Cable,1,125.69,2023-03-23 08:00:00,Boston
+1537,Lightning Cable,4,889.29,2023-03-23 09:00:00,Chicago
+1538,Lightning Cable,1,275.4,2023-03-23 10:00:00,San Francisco
+1539,iPhone,3,1183.23,2023-03-23 11:00:00,Los Angeles
+1540,Lightning Cable,1,946.9,2023-03-23 12:00:00,New York
+1541,iPhone,2,1165.26,2023-03-23 13:00:00,Chicago
+1542,Lightning Cable,4,1899.98,2023-03-23 14:00:00,Chicago
+1543,iPhone,4,1458.53,2023-03-23 15:00:00,Los Angeles
+1544,iPhone,4,1821.48,2023-03-23 16:00:00,San Francisco
+1545,USB-C Cable,1,1930.42,2023-03-23 17:00:00,Austin
+1546,USB-C Cable,4,151.54,2023-03-23 18:00:00,Los Angeles
+1547,Lightning Cable,2,865.29,2023-03-23 19:00:00,Austin
+1548,ThinkPad,4,1648.5,2023-03-23 20:00:00,New York
+1549,Headphones,1,1039.89,2023-03-23 21:00:00,San Francisco
+1550,USB-C Cable,1,830.06,2023-03-23 22:00:00,New York
+1551,Lightning Cable,4,567.04,2023-03-23 23:00:00,Boston
+1552,Lightning Cable,4,694.94,2023-03-24 00:00:00,Austin
+1553,Lightning Cable,2,763.99,2023-03-24 01:00:00,Los Angeles
+1554,Macbook Pro,4,434.44,2023-03-24 02:00:00,San Francisco
+1555,Lightning Cable,3,404.94,2023-03-24 03:00:00,New York
+1556,Lightning Cable,4,1083.64,2023-03-24 04:00:00,Austin
+1557,Headphones,3,1027.28,2023-03-24 05:00:00,Chicago
+1558,Lightning Cable,1,169.7,2023-03-24 06:00:00,Chicago
+1559,Google Pixel,3,1572.07,2023-03-24 07:00:00,Los Angeles
+1560,Lightning Cable,4,458.38,2023-03-24 08:00:00,New York
+1561,USB-C Cable,3,911.82,2023-03-24 09:00:00,New York
+1562,ThinkPad,3,1506.48,2023-03-24 10:00:00,San Francisco
+1563,Lightning Cable,1,1719.98,2023-03-24 11:00:00,Chicago
+1564,Lightning Cable,3,1943.43,2023-03-24 12:00:00,Los Angeles
+1565,Monitor,4,345.84,2023-03-24 13:00:00,San Francisco
+1566,Lightning Cable,2,651.32,2023-03-24 14:00:00,San Francisco
+1567,Lightning Cable,4,1543.87,2023-03-24 15:00:00,Chicago
+1568,Headphones,4,1778.72,2023-03-24 16:00:00,New York
+1569,Lightning Cable,4,592.42,2023-03-24 17:00:00,New York
+1570,iPhone,1,364.44,2023-03-24 18:00:00,Boston
+1571,Headphones,2,523.92,2023-03-24 19:00:00,Los Angeles
+1572,USB-C Cable,1,1445.11,2023-03-24 20:00:00,New York
+1573,Lightning Cable,2,748.47,2023-03-24 21:00:00,Los Angeles
+1574,Headphones,3,1521.69,2023-03-24 22:00:00,Chicago
+1575,USB-C Cable,3,882.46,2023-03-24 23:00:00,San Francisco
+1576,Monitor,4,1713.2,2023-03-25 00:00:00,Boston
+1577,Lightning Cable,2,558.74,2023-03-25 01:00:00,Boston
+1578,Lightning Cable,1,1675.05,2023-03-25 02:00:00,New York
+1579,Lightning Cable,2,1924.81,2023-03-25 03:00:00,Los Angeles
+1580,USB-C Cable,2,804.86,2023-03-25 04:00:00,Los Angeles
+1581,USB-C Cable,2,1539.98,2023-03-25 05:00:00,Boston
+1582,USB-C Cable,2,1807.95,2023-03-25 06:00:00,Austin
+1583,USB-C Cable,1,1346.05,2023-03-25 07:00:00,Boston
+1584,USB-C Cable,1,248.72,2023-03-25 08:00:00,Austin
+1585,Headphones,4,821.73,2023-03-25 09:00:00,Chicago
+1586,iPhone,2,1521.8,2023-03-25 10:00:00,Chicago
+1587,Lightning Cable,1,35.29,2023-03-25 11:00:00,New York
+1588,ThinkPad,4,1315.26,2023-03-25 12:00:00,San Francisco
+1589,Lightning Cable,3,1432.62,2023-03-25 13:00:00,New York
+1590,USB-C Cable,4,1110.51,2023-03-25 14:00:00,San Francisco
+1591,USB-C Cable,4,389.69,2023-03-25 15:00:00,New York
+1592,Lightning Cable,2,188.18,2023-03-25 16:00:00,New York
+1593,ThinkPad,2,1611.65,2023-03-25 17:00:00,New York
+1594,Lightning Cable,4,1025.6,2023-03-25 18:00:00,Austin
+1595,ThinkPad,3,891.11,2023-03-25 19:00:00,San Francisco
+1596,Macbook Pro,2,1804.68,2023-03-25 20:00:00,Boston
+1597,USB-C Cable,4,142.71,2023-03-25 21:00:00,Los Angeles
+1598,Headphones,1,1508.6,2023-03-25 22:00:00,Austin
+1599,Monitor,3,21.14,2023-03-25 23:00:00,Austin
+1600,Headphones,2,37.95,2023-03-26 00:00:00,San Francisco
+1601,USB-C Cable,1,57.28,2023-03-26 01:00:00,Austin
+1602,Headphones,1,1549.19,2023-03-26 02:00:00,San Francisco
+1603,USB-C Cable,4,929.81,2023-03-26 03:00:00,Los Angeles
+1604,Lightning Cable,1,713.0,2023-03-26 04:00:00,Boston
+1605,Lightning Cable,3,288.71,2023-03-26 05:00:00,Chicago
+1606,Headphones,2,1209.97,2023-03-26 06:00:00,Boston
+1607,USB-C Cable,2,1127.66,2023-03-26 07:00:00,Austin
+1608,Lightning Cable,2,258.67,2023-03-26 08:00:00,San Francisco
+1609,Lightning Cable,4,1029.76,2023-03-26 09:00:00,San Francisco
+1610,Lightning Cable,3,1677.18,2023-03-26 10:00:00,New York
+1611,Headphones,3,154.81,2023-03-26 11:00:00,New York
+1612,Headphones,1,1036.09,2023-03-26 12:00:00,New York
+1613,Lightning Cable,1,1702.02,2023-03-26 13:00:00,New York
+1614,iPhone,1,1878.16,2023-03-26 14:00:00,Austin
+1615,Macbook Pro,4,1390.83,2023-03-26 15:00:00,Chicago
+1616,Headphones,4,1043.39,2023-03-26 16:00:00,New York
+1617,USB-C Cable,1,778.45,2023-03-26 17:00:00,San Francisco
+1618,Macbook Pro,3,861.6,2023-03-26 18:00:00,Austin
+1619,Lightning Cable,3,1520.33,2023-03-26 19:00:00,New York
+1620,iPhone,3,1263.83,2023-03-26 20:00:00,Chicago
+1621,USB-C Cable,1,293.19,2023-03-26 21:00:00,Boston
+1622,Lightning Cable,3,1260.75,2023-03-26 22:00:00,Chicago
+1623,Lightning Cable,3,1442.04,2023-03-26 23:00:00,Chicago
+1624,Macbook Pro,3,1398.64,2023-03-27 00:00:00,Chicago
+1625,Macbook Pro,1,405.71,2023-03-27 01:00:00,New York
+1626,Google Pixel,1,836.56,2023-03-27 02:00:00,Chicago
+1627,iPhone,1,1178.98,2023-03-27 03:00:00,San Francisco
+1628,Lightning Cable,1,461.42,2023-03-27 04:00:00,Boston
+1629,USB-C Cable,3,1868.98,2023-03-27 05:00:00,Austin
+1630,Headphones,1,1500.4,2023-03-27 06:00:00,New York
+1631,iPhone,2,1138.22,2023-03-27 07:00:00,Boston
+1632,Lightning Cable,4,199.89,2023-03-27 08:00:00,Austin
+1633,Monitor,2,1479.06,2023-03-27 09:00:00,New York
+1634,Lightning Cable,4,721.42,2023-03-27 10:00:00,Chicago
+1635,Headphones,4,265.83,2023-03-27 11:00:00,New York
+1636,Lightning Cable,4,217.23,2023-03-27 12:00:00,Austin
+1637,Lightning Cable,2,1284.34,2023-03-27 13:00:00,Austin
+1638,USB-C Cable,4,1401.92,2023-03-27 14:00:00,Los Angeles
+1639,Lightning Cable,4,1350.94,2023-03-27 15:00:00,Austin
+1640,Lightning Cable,2,974.06,2023-03-27 16:00:00,San Francisco
+1641,Monitor,3,1513.69,2023-03-27 17:00:00,New York
+1642,Headphones,3,1523.73,2023-03-27 18:00:00,Chicago
+1643,Macbook Pro,2,99.9,2023-03-27 19:00:00,Boston
+1644,USB-C Cable,2,1466.9,2023-03-27 20:00:00,Boston
+1645,USB-C Cable,2,1277.3,2023-03-27 21:00:00,San Francisco
+1646,USB-C Cable,1,1140.18,2023-03-27 22:00:00,New York
+1647,USB-C Cable,1,1857.0,2023-03-27 23:00:00,Chicago
+1648,USB-C Cable,2,784.58,2023-03-28 00:00:00,Boston
