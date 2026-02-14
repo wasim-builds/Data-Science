@@ -1,0 +1,32 @@
+# Book settings
+title: "Data Analyst Roadmap"
+author: "Wasim"
+logo: "https://cdn-icons-png.flaticon.com/512/2620/2620958.png"  # Generic Data Science icon
+copyright: "2026"
+only_build_toc_files: true
+
+# Execution settings
+execute:
+  execute_notebooks: "off"  # We don't want to re-run notebooks during build (too slow/costly)
+  exclude_patterns:
+    - "requirements.txt"
+    - "setup.py"
+    - "verify_setup.py"
+    - "LICENSE"
+    - "README.md"
+    - "datasets/*"
+    - "cheat_sheets/*"
+
+# Launch button settings (for Colab)
+launch_buttons:
+  notebook_interface: "classic"
+  colab_url: "https://colab.research.google.com"
+
+# HTML specific settings
+html:
+  use_issues_button: true
+  use_repository_button: true
+  repository_url: "https://github.com/wasim/Data-Science"
+  repository_branch: "main"
+  path_to_book: "data-analyst-roadmap"
+  home_page_in_navbar: true

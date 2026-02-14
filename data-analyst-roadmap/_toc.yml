@@ -1,0 +1,77 @@
+format: jb-book
+root: intro
+parts:
+- caption: 00 Setup
+  chapters:
+  - file: 00_setup/README.md
+  - file: 00_setup/jupyter_setup.md
+  - file: 00_setup/python_setup.md
+- caption: 01 Python Basics
+  chapters:
+  - file: 01_python_basics/README.md
+  - file: 01_python_basics/functions.ipynb
+  - file: 01_python_basics/loops.ipynb
+  - file: 01_python_basics/practice_questions.ipynb
+  - file: 01_python_basics/variables.ipynb
+- caption: 02 Numpy
+  chapters:
+  - file: 02_numpy/README.md
+  - file: 02_numpy/01_numpy_basics.ipynb
+  - file: 02_numpy/02_array_operations.ipynb
+  - file: 02_numpy/03_indexing_slicing.ipynb
+  - file: 02_numpy/04_statistics.ipynb
+- caption: 03 Pandas
+  chapters:
+  - file: 03_pandas/README.md
+  - file: 03_pandas/01_pandas_intro.ipynb
+  - file: 03_pandas/02_data_manipulation.ipynb
+  - file: 03_pandas/03_groupby_aggregation.ipynb
+  - file: 03_pandas/04_merging_joining.ipynb
+  - file: 03_pandas/05_time_series.ipynb
+  - file: 03_pandas/06_advanced_filtering.ipynb
+- caption: 04 Data Visualization
+  chapters:
+  - file: 04_data_visualization/README.md
+  - file: 04_data_visualization/01_matplotlib_basics.ipynb
+  - file: 04_data_visualization/02_seaborn_advanced.ipynb
+  - file: 04_data_visualization/03_plotly_interactive.ipynb
+  - file: 04_data_visualization/05_advanced_customization.ipynb
+- caption: 05 Statistics
+  chapters:
+  - file: 05_statistics/01_descriptive_stats.ipynb
+  - file: 05_statistics/02_inferential_stats.ipynb
+- caption: 06 Sql For Analytics
+  chapters:
+  - file: 06_sql_for_analytics/README.md
+  - file: 06_sql_for_analytics/01_sql_basics.ipynb
+  - file: 06_sql_for_analytics/02_advanced_queries.ipynb
+  - file: 06_sql_for_analytics/03_window_functions.ipynb
+  - file: 06_sql_for_analytics/04_ctes_and_complex_joins.ipynb
+  - file: 06_sql_for_analytics/05_sql_practice_exercises.ipynb
+- caption: 07 Excel For Analysts
+  chapters:
+  - file: 07_excel_for_analysts/README.md
+  - file: 07_excel_for_analysts/01_excel_concepts.md
+  - file: 07_excel_for_analysts/02_advanced_formulas.md
+  - file: 07_excel_for_analysts/03_pivot_tables_deep_dive.md
+  - file: 07_excel_for_analysts/04_python_excel_integration.ipynb
+  - file: 07_excel_for_analysts/05_power_query_basics.md
+- caption: 08 Data Cleaning Projects
+  chapters:
+  - file: 08_data_cleaning_projects/README.md
+  - file: 08_data_cleaning_projects/01_cleaning_walkthrough.ipynb
+  - file: 08_data_cleaning_projects/02_handling_missing_data.ipynb
+  - file: 08_data_cleaning_projects/03_outlier_detection.ipynb
+  - file: 08_data_cleaning_projects/04_text_cleaning.ipynb
+- caption: 09 End To End Projects
+  chapters:
+  - file: 09_end_to_end_projects/README.md
+  - file: 09_end_to_end_projects/01_eda_project.ipynb
+- caption: 10 Machine Learning Basics
+  chapters:
+  - file: 10_machine_learning_basics/README.md
+  - file: 10_machine_learning_basics/01_ml_intro.ipynb
+  - file: 10_machine_learning_basics/02_linear_regression.ipynb
+  - file: 10_machine_learning_basics/03_logistic_regression.ipynb
+  - file: 10_machine_learning_basics/04_model_evaluation.ipynb
+  - file: 10_machine_learning_basics/05_feature_engineering.ipynb
