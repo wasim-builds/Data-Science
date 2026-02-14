@@ -1,0 +1,12 @@
+jupyter-book
+pandas
+numpy
+matplotlib
+seaborn
+plotly
+scikit-learn
+yfinance
+openpyxl
+ipykernel
+nbformat
+pyyaml

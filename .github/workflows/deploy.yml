@@ -19,12 +19,12 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install jupyter-book pandas seaborn matplotlib numpy plotly scikit-learn yfinance openpyxl
+        pip install -r data-analyst-roadmap/requirements_docs.txt
 
     - name: Build the book
       run: |
-        # Build the book from source
-        jupyter-book build data-analyst-roadmap
+        # Build the book from source with verbose logging
+        jupyter-book build data-analyst-roadmap -v
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
