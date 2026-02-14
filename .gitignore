@@ -48,7 +48,8 @@ ipython_config.py
 .idea_modules/
 
 # VS Code
-.vscode/
+.vscode/*
+!.vscode/settings.json
 *.code-workspace
 
 # Data files (add specific exceptions as needed)

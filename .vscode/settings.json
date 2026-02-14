@@ -1,0 +1,38 @@
+{
+    "cSpell.words": [
+        "args",
+        "kwargs",
+        "ipython",
+        "nbconvert",
+        "mimetype",
+        "codemirror",
+        "pygments",
+        "kernelspec",
+        "docstrings",
+        "Docstrings",
+        "pandas",
+        "numpy",
+        "matplotlib",
+        "seaborn",
+        "plotly"
+    ],
+    "ltex.dictionary": {
+        "en-US": [
+            "args",
+            "kwargs",
+            "ipython",
+            "nbconvert",
+            "mimetype",
+            "codemirror",
+            "pygments",
+            "kernelspec",
+            "docstrings",
+            "Docstrings",
+            "pandas",
+            "numpy",
+            "matplotlib",
+            "seaborn",
+            "plotly"
+        ]
+    }
+}
