@@ -11,4 +11,4 @@ ipykernel
 nbformat
 pyyaml
 docutils<0.19
-ghp-import
+
