@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "build": "pip install -r data-analyst-roadmap/requirements_docs.txt && jupyter-book build data-analyst-roadmap"
+        "build": "bash vercel_build.sh"
     },
     "engines": {
         "node": "20.x"

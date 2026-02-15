@@ -1,5 +1,17 @@
 {
-    "buildCommand": "npm run build",
-    "outputDirectory": "data-analyst-roadmap/_build/html",
-    "framework": null
+    "builds": [
+        {
+            "src": "vercel_build.sh",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "data-analyst-roadmap/_build/html"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/$1"
+        }
+    ]
 }
