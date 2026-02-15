@@ -1,0 +1,5 @@
+{
+    "buildCommand": "npm run build",
+    "outputDirectory": "data-analyst-roadmap/_build/html",
+    "framework": null
+}

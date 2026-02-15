@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "build": "pip install -r data-analyst-roadmap/requirements_docs.txt && jupyter-book build data-analyst-roadmap"
+    },
+    "engines": {
+        "node": "18.x"
+    }
+}
