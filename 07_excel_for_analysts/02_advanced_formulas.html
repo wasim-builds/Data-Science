@@ -1,0 +1,1081 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Advanced Excel Formulas &#8212; Data Analyst Roadmap</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '07_excel_for_analysts/02_advanced_formulas';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pivot Tables Deep Dive" href="03_pivot_tables_deep_dive.html" />
+    <link rel="prev" title="Excel for Data Analysts" href="01_excel_concepts.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://cdn-icons-png.flaticon.com/512/2620/2620958.png" class="logo__image only-light" alt="Data Analyst Roadmap - Home"/>
+    <script>document.write(`<img src="https://cdn-icons-png.flaticon.com/512/2620/2620958.png" class="logo__image only-dark" alt="Data Analyst Roadmap - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the Data Analyst Roadmap 🚀
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">00 Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00_setup/README.html">🛠️ Module 00: Environment Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00_setup/jupyter_setup.html">Jupyter Notebook Setup &amp; Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00_setup/python_setup.html">Python &amp; Anaconda Setup Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/README.html">🐍 Module 01: Python Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/functions.html">Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/loops.html">Python Loops and Control Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/practice_questions.html">Python Basics - Practice Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/variables.html">Python Variables and Data Types</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02 Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/README.html">🔢 Module 02: NumPy for Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/01_numpy_basics.html">NumPy Basics - Arrays, Data Types, and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/02_array_operations.html">NumPy Array Operations - Mathematics, Broadcasting &amp; Vectorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/03_indexing_slicing.html">NumPy Indexing and Slicing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/04_statistics.html">NumPy Statistics and Aggregations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03 Pandas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/README.html">🐼 Pandas for Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/01_pandas_intro.html">Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/02_data_manipulation.html">Data Manipulation with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/03_groupby_aggregation.html">Grouping and Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/04_merging_joining.html">Merging and Joining Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/05_time_series.html">Time Series with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/06_advanced_filtering.html">Advanced Filtering and Querying</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04 Data Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/README.html">📊 Data Visualization with Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/01_matplotlib_basics.html">Matplotlib Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/02_seaborn_advanced.html">Advanced Visualization with Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/03_plotly_interactive.html">Interactive Visualization with Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/05_advanced_customization.html">Advanced Plotly Customization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">05 Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05_statistics/01_descriptive_stats.html">Descriptive Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_statistics/02_inferential_stats.html">Inferential Statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">06 Sql For Analytics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../06_sql_for_analytics/README.html">📊 SQL for Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_sql_for_analytics/01_sql_basics.html">SQL for Analytics (with Python)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_sql_for_analytics/02_advanced_queries.html">Advanced SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_sql_for_analytics/03_window_functions.html">Window Functions in SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_sql_for_analytics/04_ctes_and_complex_joins.html">CTEs and Complex Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_sql_for_analytics/05_sql_practice_exercises.html">SQL Practice Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">07 Excel For Analysts</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="README.html">📊 Excel for Data Analysts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_excel_concepts.html">Excel for Data Analysts</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Advanced Excel Formulas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_pivot_tables_deep_dive.html">Pivot Tables Deep Dive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_python_excel_integration.html">Python-Excel Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_power_query_basics.html">Power Query Basics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08 Data Cleaning Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/README.html">🧹 Data Cleaning Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/01_cleaning_walkthrough.html">Data Cleaning Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/02_handling_missing_data.html">Handling Missing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/03_outlier_detection.html">Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/04_text_cleaning.html">Text Cleaning and Manipulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">09 End To End Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../09_end_to_end_projects/README.html">💼 Module 09: End-to-End Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_end_to_end_projects/01_eda_project.html">End-to-End EDA Project: Tips Dataset</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">10 Machine Learning Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/README.html">🤖 Machine Learning Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/01_ml_intro.html">Introduction to Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/02_linear_regression.html">Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/03_logistic_regression.html">Logistic Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/04_model_evaluation.html">Model Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/05_feature_engineering.html">Feature Engineering</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/wasim/Data-Science" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/wasim/Data-Science/issues/new?title=Issue%20on%20page%20%2F07_excel_for_analysts/02_advanced_formulas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/07_excel_for_analysts/02_advanced_formulas.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Advanced Excel Formulas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-match">1. INDEX-MATCH</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">Syntax</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-find-price-by-product-name">Example: Find Price by Product Name</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-way-lookup">Two-Way Lookup</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumifs-countifs-averageifs">2. SUMIFS / COUNTIFS / AVERAGEIFS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sumifs">SUMIFS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#countifs">COUNTIFS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#averageifs">AVERAGEIFS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-formulas">3. Array Formulas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-if-array-formula">SUM + IF (Array Formula)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sumproduct">SUMPRODUCT</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-handling">4. Error Handling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iferror">IFERROR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifna">IFNA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-functions">5. Text Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate-textjoin">CONCATENATE / TEXTJOIN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#left-mid-right">LEFT, MID, RIGHT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trim">TRIM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upper-lower-proper">UPPER / LOWER / PROPER</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-functions">6. Date Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#today-now">TODAY / NOW</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-year-month-day">DATE / YEAR / MONTH / DAY</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datedif">DATEDIF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eomonth">EOMONTH</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-functions">7. Logical Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-with-and-or">IF with AND/OR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-if">Nested IF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifs-excel-365">IFS (Excel 365)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lookup-functions">8. Lookup Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xlookup-excel-365">XLOOKUP (Excel 365)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-functions">9. Statistical Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rank">RANK</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#percentile">PERCENTILE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quartile">QUARTILE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-examples">10. Real-World Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-sales-commission">Example 1: Sales Commission</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-age-from-birthdate">Example 2: Age from Birthdate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-extract-domain-from-email">Example 3: Extract Domain from Email</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-conditional-sum-with-multiple-criteria">Example 4: Conditional Sum with Multiple Criteria</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">Practice Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-success">Tips for Success</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes-to-avoid">Common Mistakes to Avoid</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="advanced-excel-formulas">
+<h1>Advanced Excel Formulas<a class="headerlink" href="#advanced-excel-formulas" title="Link to this heading">#</a></h1>
+<p>Master powerful Excel formulas for data analysis.</p>
+<section id="index-match">
+<h2>1. INDEX-MATCH<a class="headerlink" href="#index-match" title="Link to this heading">#</a></h2>
+<p><strong>Better than VLOOKUP!</strong> More flexible and faster.</p>
+<section id="syntax">
+<h3>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))
+</pre></div>
+</div>
+</section>
+<section id="example-find-price-by-product-name">
+<h3>Example: Find Price by Product Name<a class="headerlink" href="#example-find-price-by-product-name" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=INDEX(B2:B10, MATCH(&quot;Laptop&quot;, A2:A10, 0))
+</pre></div>
+</div>
+<p><strong>Advantages over VLOOKUP:</strong></p>
+<ul class="simple">
+<li><p>✅ Can look left (VLOOKUP can’t)</p></li>
+<li><p>✅ Faster for large datasets</p></li>
+<li><p>✅ Column changes don’t break formula</p></li>
+</ul>
+</section>
+<section id="two-way-lookup">
+<h3>Two-Way Lookup<a class="headerlink" href="#two-way-lookup" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=INDEX(B2:E10, 
+       MATCH(&quot;Product A&quot;, A2:A10, 0),
+       MATCH(&quot;Q2&quot;, B1:E1, 0))
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sumifs-countifs-averageifs">
+<h2>2. SUMIFS / COUNTIFS / AVERAGEIFS<a class="headerlink" href="#sumifs-countifs-averageifs" title="Link to this heading">#</a></h2>
+<p>Multiple criteria aggregation.</p>
+<section id="sumifs">
+<h3>SUMIFS<a class="headerlink" href="#sumifs" title="Link to this heading">#</a></h3>
+<p>Sum with multiple conditions.</p>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=SUMIFS(sum_range, criteria_range1, criteria1, 
+        criteria_range2, criteria2, ...)
+</pre></div>
+</div>
+<p><strong>Example:</strong> Total sales for “Laptop” in “East” region</p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=SUMIFS(D2:D100, A2:A100, &quot;Laptop&quot;, 
+        B2:B100, &quot;East&quot;)
+</pre></div>
+</div>
+</section>
+<section id="countifs">
+<h3>COUNTIFS<a class="headerlink" href="#countifs" title="Link to this heading">#</a></h3>
+<p>Count with multiple conditions.</p>
+<p><strong>Example:</strong> Count orders &gt; $500 from “West”</p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=COUNTIFS(C2:C100, &quot;&gt;500&quot;, B2:B100, &quot;West&quot;)
+</pre></div>
+</div>
+</section>
+<section id="averageifs">
+<h3>AVERAGEIFS<a class="headerlink" href="#averageifs" title="Link to this heading">#</a></h3>
+<p>Average with conditions.</p>
+<p><strong>Example:</strong> Average salary in Engineering dept</p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=AVERAGEIFS(C2:C50, B2:B50, &quot;Engineering&quot;)
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="array-formulas">
+<h2>3. Array Formulas<a class="headerlink" href="#array-formulas" title="Link to this heading">#</a></h2>
+<p>Perform multiple calculations at once.</p>
+<section id="sum-if-array-formula">
+<h3>SUM + IF (Array Formula)<a class="headerlink" href="#sum-if-array-formula" title="Link to this heading">#</a></h3>
+<p><strong>Old way (Ctrl+Shift+Enter):</strong></p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>{=SUM(IF(A2:A10=&quot;East&quot;, B2:B10, 0))}
+</pre></div>
+</div>
+<p><strong>New way (Excel 365):</strong></p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=SUM(IF(A2:A10=&quot;East&quot;, B2:B10, 0))
+</pre></div>
+</div>
+</section>
+<section id="sumproduct">
+<h3>SUMPRODUCT<a class="headerlink" href="#sumproduct" title="Link to this heading">#</a></h3>
+<p>Multiply arrays and sum results.</p>
+<p><strong>Example:</strong> Total revenue (price × quantity)</p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=SUMPRODUCT(B2:B10, C2:C10)
+</pre></div>
+</div>
+<p><strong>With condition:</strong></p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=SUMPRODUCT((A2:A10=&quot;Laptop&quot;)*(B2:B10)*(C2:C10))
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="error-handling">
+<h2>4. Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading">#</a></h2>
+<section id="iferror">
+<h3>IFERROR<a class="headerlink" href="#iferror" title="Link to this heading">#</a></h3>
+<p>Handle errors gracefully.</p>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=IFERROR(formula, value_if_error)
+</pre></div>
+</div>
+<p><strong>Example:</strong></p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=IFERROR(VLOOKUP(A2, Table1, 2, 0), 
+         &quot;Not Found&quot;)
+</pre></div>
+</div>
+</section>
+<section id="ifna">
+<h3>IFNA<a class="headerlink" href="#ifna" title="Link to this heading">#</a></h3>
+<p>Specifically for #N/A errors.</p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=IFNA(VLOOKUP(A2, Table1, 2, 0), 0)
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="text-functions">
+<h2>5. Text Functions<a class="headerlink" href="#text-functions" title="Link to this heading">#</a></h2>
+<section id="concatenate-textjoin">
+<h3>CONCATENATE / TEXTJOIN<a class="headerlink" href="#concatenate-textjoin" title="Link to this heading">#</a></h3>
+<p><strong>Old way:</strong></p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=CONCATENATE(A2, &quot; &quot;, B2)
+</pre></div>
+</div>
+<p><strong>Better way:</strong></p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=A2 &amp; &quot; &quot; &amp; B2
+</pre></div>
+</div>
+<p><strong>Best way (Excel 365):</strong></p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=TEXTJOIN(&quot; &quot;, TRUE, A2:C2)
+</pre></div>
+</div>
+</section>
+<section id="left-mid-right">
+<h3>LEFT, MID, RIGHT<a class="headerlink" href="#left-mid-right" title="Link to this heading">#</a></h3>
+<p>Extract parts of text.</p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=LEFT(A2, 5)          // First 5 characters
+=MID(A2, 3, 4)        // 4 chars starting at position 3
+=RIGHT(A2, 3)         // Last 3 characters
+</pre></div>
+</div>
+</section>
+<section id="trim">
+<h3>TRIM<a class="headerlink" href="#trim" title="Link to this heading">#</a></h3>
+<p>Remove extra spaces.</p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=TRIM(A2)
+</pre></div>
+</div>
+</section>
+<section id="upper-lower-proper">
+<h3>UPPER / LOWER / PROPER<a class="headerlink" href="#upper-lower-proper" title="Link to this heading">#</a></h3>
+<p>Change case.</p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=UPPER(A2)            // ALL CAPS
+=LOWER(A2)            // all lowercase
+=PROPER(A2)           // Title Case
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="date-functions">
+<h2>6. Date Functions<a class="headerlink" href="#date-functions" title="Link to this heading">#</a></h2>
+<section id="today-now">
+<h3>TODAY / NOW<a class="headerlink" href="#today-now" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=TODAY()              // Current date
+=NOW()                // Current date and time
+</pre></div>
+</div>
+</section>
+<section id="date-year-month-day">
+<h3>DATE / YEAR / MONTH / DAY<a class="headerlink" href="#date-year-month-day" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=DATE(2023, 12, 25)   // Create date
+=YEAR(A2)             // Extract year
+=MONTH(A2)            // Extract month
+=DAY(A2)              // Extract day
+</pre></div>
+</div>
+</section>
+<section id="datedif">
+<h3>DATEDIF<a class="headerlink" href="#datedif" title="Link to this heading">#</a></h3>
+<p>Calculate date differences.</p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=DATEDIF(A2, B2, &quot;D&quot;)    // Days
+=DATEDIF(A2, B2, &quot;M&quot;)    // Months
+=DATEDIF(A2, B2, &quot;Y&quot;)    // Years
+</pre></div>
+</div>
+</section>
+<section id="eomonth">
+<h3>EOMONTH<a class="headerlink" href="#eomonth" title="Link to this heading">#</a></h3>
+<p>End of month.</p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=EOMONTH(A2, 0)       // End of current month
+=EOMONTH(A2, 1)       // End of next month
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="logical-functions">
+<h2>7. Logical Functions<a class="headerlink" href="#logical-functions" title="Link to this heading">#</a></h2>
+<section id="if-with-and-or">
+<h3>IF with AND/OR<a class="headerlink" href="#if-with-and-or" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=IF(AND(A2&gt;100, B2=&quot;Yes&quot;), &quot;Approved&quot;, &quot;Rejected&quot;)
+=IF(OR(A2&gt;1000, B2=&quot;VIP&quot;), &quot;Priority&quot;, &quot;Normal&quot;)
+</pre></div>
+</div>
+</section>
+<section id="nested-if">
+<h3>Nested IF<a class="headerlink" href="#nested-if" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=IF(A2&gt;=90, &quot;A&quot;,
+   IF(A2&gt;=80, &quot;B&quot;,
+      IF(A2&gt;=70, &quot;C&quot;, &quot;F&quot;)))
+</pre></div>
+</div>
+</section>
+<section id="ifs-excel-365">
+<h3>IFS (Excel 365)<a class="headerlink" href="#ifs-excel-365" title="Link to this heading">#</a></h3>
+<p>Cleaner than nested IF.</p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=IFS(A2&gt;=90, &quot;A&quot;,
+     A2&gt;=80, &quot;B&quot;,
+     A2&gt;=70, &quot;C&quot;,
+     TRUE, &quot;F&quot;)
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="lookup-functions">
+<h2>8. Lookup Functions<a class="headerlink" href="#lookup-functions" title="Link to this heading">#</a></h2>
+<section id="xlookup-excel-365">
+<h3>XLOOKUP (Excel 365)<a class="headerlink" href="#xlookup-excel-365" title="Link to this heading">#</a></h3>
+<p>Modern replacement for VLOOKUP.</p>
+<p><strong>Syntax:</strong></p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=XLOOKUP(lookup_value, lookup_array, 
+         return_array, [if_not_found])
+</pre></div>
+</div>
+<p><strong>Example:</strong></p>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=XLOOKUP(A2, Products, Prices, &quot;Not Found&quot;)
+</pre></div>
+</div>
+<p><strong>Advantages:</strong></p>
+<ul class="simple">
+<li><p>✅ Can look left or right</p></li>
+<li><p>✅ Default exact match</p></li>
+<li><p>✅ Built-in error handling</p></li>
+<li><p>✅ Can return multiple columns</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="statistical-functions">
+<h2>9. Statistical Functions<a class="headerlink" href="#statistical-functions" title="Link to this heading">#</a></h2>
+<section id="rank">
+<h3>RANK<a class="headerlink" href="#rank" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=RANK(A2, $A$2:$A$10, 0)  // 0 = descending
+</pre></div>
+</div>
+</section>
+<section id="percentile">
+<h3>PERCENTILE<a class="headerlink" href="#percentile" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=PERCENTILE(A2:A100, 0.75)  // 75th percentile
+</pre></div>
+</div>
+</section>
+<section id="quartile">
+<h3>QUARTILE<a class="headerlink" href="#quartile" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=QUARTILE(A2:A100, 1)  // Q1
+=QUARTILE(A2:A100, 3)  // Q3
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="real-world-examples">
+<h2>10. Real-World Examples<a class="headerlink" href="#real-world-examples" title="Link to this heading">#</a></h2>
+<section id="example-1-sales-commission">
+<h3>Example 1: Sales Commission<a class="headerlink" href="#example-1-sales-commission" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=IF(B2&gt;10000, B2*0.15,
+   IF(B2&gt;5000, B2*0.10, B2*0.05))
+</pre></div>
+</div>
+</section>
+<section id="example-2-age-from-birthdate">
+<h3>Example 2: Age from Birthdate<a class="headerlink" href="#example-2-age-from-birthdate" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=DATEDIF(A2, TODAY(), &quot;Y&quot;)
+</pre></div>
+</div>
+</section>
+<section id="example-3-extract-domain-from-email">
+<h3>Example 3: Extract Domain from Email<a class="headerlink" href="#example-3-extract-domain-from-email" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=MID(A2, FIND(&quot;@&quot;, A2)+1, LEN(A2))
+</pre></div>
+</div>
+</section>
+<section id="example-4-conditional-sum-with-multiple-criteria">
+<h3>Example 4: Conditional Sum with Multiple Criteria<a class="headerlink" href="#example-4-conditional-sum-with-multiple-criteria" title="Link to this heading">#</a></h3>
+<div class="highlight-excel notranslate"><div class="highlight"><pre><span></span>=SUMIFS(Sales, Region, &quot;East&quot;, 
+        Product, &quot;Laptop&quot;, 
+        Date, &quot;&gt;=1/1/2023&quot;)
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="practice-exercises">
+<h2>Practice Exercises<a class="headerlink" href="#practice-exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1">
+<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h3>
+<p>Create a formula to categorize sales:</p>
+<ul class="simple">
+<li><p>“High” if &gt; $1000</p></li>
+<li><p>“Medium” if <span class="math notranslate nohighlight">\(500-\)</span>1000</p></li>
+<li><p>“Low” if &lt; $500</p></li>
+</ul>
+</section>
+<section id="exercise-2">
+<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h3>
+<p>Use INDEX-MATCH to find employee salary
+by employee ID.</p>
+</section>
+<section id="exercise-3">
+<h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h3>
+<p>Calculate total revenue for products
+sold in Q1 2023 in the “West” region.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="tips-for-success">
+<h2>Tips for Success<a class="headerlink" href="#tips-for-success" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Use Named Ranges</strong> - Easier to read</p></li>
+<li><p><strong>Avoid Volatile Functions</strong> - NOW(), TODAY() slow down sheets</p></li>
+<li><p><strong>Use Tables</strong> - Structured references are cleaner</p></li>
+<li><p><strong>Test with Small Data</strong> - Before applying to large datasets</p></li>
+<li><p><strong>Document Complex Formulas</strong> - Add comments</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="common-mistakes-to-avoid">
+<h2>Common Mistakes to Avoid<a class="headerlink" href="#common-mistakes-to-avoid" title="Link to this heading">#</a></h2>
+<p>❌ Using VLOOKUP instead of INDEX-MATCH<br />
+❌ Not locking references with $<br />
+❌ Nested IFs instead of IFS<br />
+❌ Not handling errors<br />
+❌ Hard-coding values instead of cell references</p>
+<hr class="docutils" />
+<p><strong>Next:</strong> <a class="reference internal" href="03_pivot_tables_deep_dive.html"><span class="std std-doc">Pivot Tables Deep Dive</span></a> →</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./07_excel_for_analysts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_excel_concepts.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Excel for Data Analysts</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_pivot_tables_deep_dive.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pivot Tables Deep Dive</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-match">1. INDEX-MATCH</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">Syntax</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-find-price-by-product-name">Example: Find Price by Product Name</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-way-lookup">Two-Way Lookup</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumifs-countifs-averageifs">2. SUMIFS / COUNTIFS / AVERAGEIFS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sumifs">SUMIFS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#countifs">COUNTIFS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#averageifs">AVERAGEIFS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-formulas">3. Array Formulas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-if-array-formula">SUM + IF (Array Formula)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sumproduct">SUMPRODUCT</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-handling">4. Error Handling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iferror">IFERROR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifna">IFNA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-functions">5. Text Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate-textjoin">CONCATENATE / TEXTJOIN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#left-mid-right">LEFT, MID, RIGHT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trim">TRIM</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upper-lower-proper">UPPER / LOWER / PROPER</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-functions">6. Date Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#today-now">TODAY / NOW</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-year-month-day">DATE / YEAR / MONTH / DAY</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datedif">DATEDIF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eomonth">EOMONTH</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-functions">7. Logical Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-with-and-or">IF with AND/OR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-if">Nested IF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ifs-excel-365">IFS (Excel 365)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lookup-functions">8. Lookup Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xlookup-excel-365">XLOOKUP (Excel 365)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-functions">9. Statistical Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rank">RANK</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#percentile">PERCENTILE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quartile">QUARTILE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-examples">10. Real-World Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-sales-commission">Example 1: Sales Commission</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-age-from-birthdate">Example 2: Age from Birthdate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-extract-domain-from-email">Example 3: Extract Domain from Email</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-conditional-sum-with-multiple-criteria">Example 4: Conditional Sum with Multiple Criteria</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">Practice Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-success">Tips for Success</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes-to-avoid">Common Mistakes to Avoid</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Wasim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1307 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Power Query Basics &#8212; Data Analyst Roadmap</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '07_excel_for_analysts/05_power_query_basics';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="🧹 Data Cleaning Projects" href="../08_data_cleaning_projects/README.html" />
+    <link rel="prev" title="Python-Excel Integration" href="04_python_excel_integration.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://cdn-icons-png.flaticon.com/512/2620/2620958.png" class="logo__image only-light" alt="Data Analyst Roadmap - Home"/>
+    <script>document.write(`<img src="https://cdn-icons-png.flaticon.com/512/2620/2620958.png" class="logo__image only-dark" alt="Data Analyst Roadmap - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the Data Analyst Roadmap 🚀
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">00 Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00_setup/README.html">🛠️ Module 00: Environment Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00_setup/jupyter_setup.html">Jupyter Notebook Setup &amp; Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00_setup/python_setup.html">Python &amp; Anaconda Setup Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/README.html">🐍 Module 01: Python Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/functions.html">Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/loops.html">Python Loops and Control Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/practice_questions.html">Python Basics - Practice Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/variables.html">Python Variables and Data Types</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02 Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/README.html">🔢 Module 02: NumPy for Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/01_numpy_basics.html">NumPy Basics - Arrays, Data Types, and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/02_array_operations.html">NumPy Array Operations - Mathematics, Broadcasting &amp; Vectorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/03_indexing_slicing.html">NumPy Indexing and Slicing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/04_statistics.html">NumPy Statistics and Aggregations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03 Pandas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/README.html">🐼 Pandas for Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/01_pandas_intro.html">Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/02_data_manipulation.html">Data Manipulation with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/03_groupby_aggregation.html">Grouping and Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/04_merging_joining.html">Merging and Joining Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/05_time_series.html">Time Series with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/06_advanced_filtering.html">Advanced Filtering and Querying</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04 Data Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/README.html">📊 Data Visualization with Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/01_matplotlib_basics.html">Matplotlib Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/02_seaborn_advanced.html">Advanced Visualization with Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/03_plotly_interactive.html">Interactive Visualization with Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/05_advanced_customization.html">Advanced Plotly Customization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">05 Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05_statistics/01_descriptive_stats.html">Descriptive Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_statistics/02_inferential_stats.html">Inferential Statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">06 Sql For Analytics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../06_sql_for_analytics/README.html">📊 SQL for Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_sql_for_analytics/01_sql_basics.html">SQL for Analytics (with Python)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_sql_for_analytics/02_advanced_queries.html">Advanced SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_sql_for_analytics/03_window_functions.html">Window Functions in SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_sql_for_analytics/04_ctes_and_complex_joins.html">CTEs and Complex Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_sql_for_analytics/05_sql_practice_exercises.html">SQL Practice Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">07 Excel For Analysts</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="README.html">📊 Excel for Data Analysts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_excel_concepts.html">Excel for Data Analysts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_advanced_formulas.html">Advanced Excel Formulas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_pivot_tables_deep_dive.html">Pivot Tables Deep Dive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_python_excel_integration.html">Python-Excel Integration</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Power Query Basics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08 Data Cleaning Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/README.html">🧹 Data Cleaning Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/01_cleaning_walkthrough.html">Data Cleaning Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/02_handling_missing_data.html">Handling Missing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/03_outlier_detection.html">Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/04_text_cleaning.html">Text Cleaning and Manipulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">09 End To End Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../09_end_to_end_projects/README.html">💼 Module 09: End-to-End Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_end_to_end_projects/01_eda_project.html">End-to-End EDA Project: Tips Dataset</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">10 Machine Learning Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/README.html">🤖 Machine Learning Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/01_ml_intro.html">Introduction to Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/02_linear_regression.html">Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/03_logistic_regression.html">Logistic Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/04_model_evaluation.html">Model Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/05_feature_engineering.html">Feature Engineering</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/wasim/Data-Science" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/wasim/Data-Science/issues/new?title=Issue%20on%20page%20%2F07_excel_for_analysts/05_power_query_basics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/07_excel_for_analysts/05_power_query_basics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Power Query Basics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-power-query">What is Power Query?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-power-query">Accessing Power Query</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#excel-2016">Excel 2016+</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-buttons">Key Buttons</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-workflow">Basic Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">1. Load Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transform">2. Transform</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-steps">3. Apply Steps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#close-load">4. Close &amp; Load</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-transformations">Common Transformations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-columns">1. Remove Columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-rows">2. Filter Rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-data-type">3. Change Data Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-values">4. Replace Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-column">5. Split Column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-columns">6. Merge Columns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unpivoting-data">Unpivoting Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-wide">Before (Wide):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#after-long">After (Long):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to">How To</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-queries">Merging Queries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-merge">Types of Merge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">Steps</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-queries">Appending Queries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case">Use Case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Steps</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-columns">Custom Columns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-full-name">Example 1: Full Name</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-profit-margin">Example 2: Profit Margin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-age-from-birthdate">Example 3: Age from Birthdate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-columns">Conditional Columns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-categorize-sales">Example: Categorize Sales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-data">Grouping Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-total-sales-by-product">Example: Total Sales by Product</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#files">Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#databases">Databases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web">Web</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud">Cloud</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#m-language-basics">M Language Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-code">View Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-query">Example Query</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">1. Data Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-design">2. Query Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance">3. Performance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maintenance">4. Maintenance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-use-cases">Common Use Cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-monthly-files">1. Combining Monthly Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-messy-data">2. Cleaning Messy Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-date-table">3. Creating Date Table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">Practice Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-success">Tips for Success</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common Mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-query-vs-formulas">Power Query vs Formulas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-power-query-when">Use Power Query When:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-formulas-when">Use Formulas When:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="power-query-basics">
+<h1>Power Query Basics<a class="headerlink" href="#power-query-basics" title="Link to this heading">#</a></h1>
+<p>Automate data transformation in Excel.</p>
+<section id="what-is-power-query">
+<h2>What is Power Query?<a class="headerlink" href="#what-is-power-query" title="Link to this heading">#</a></h2>
+<p>Power Query is Excel’s ETL (Extract, Transform, Load) tool.</p>
+<p><strong>Use Cases:</strong></p>
+<ul class="simple">
+<li><p>✅ Import data from multiple sources</p></li>
+<li><p>✅ Clean and transform data</p></li>
+<li><p>✅ Combine multiple tables</p></li>
+<li><p>✅ Automate repetitive tasks</p></li>
+<li><p>✅ Create reusable data pipelines</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="accessing-power-query">
+<h2>Accessing Power Query<a class="headerlink" href="#accessing-power-query" title="Link to this heading">#</a></h2>
+<section id="excel-2016">
+<h3>Excel 2016+<a class="headerlink" href="#excel-2016" title="Link to this heading">#</a></h3>
+<p><strong>Data</strong> → <strong>Get &amp; Transform Data</strong></p>
+</section>
+<section id="key-buttons">
+<h3>Key Buttons<a class="headerlink" href="#key-buttons" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Get Data</strong> - Import from sources</p></li>
+<li><p><strong>From Table/Range</strong> - Use Excel data</p></li>
+<li><p><strong>Queries &amp; Connections</strong> - Manage queries</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="basic-workflow">
+<h2>Basic Workflow<a class="headerlink" href="#basic-workflow" title="Link to this heading">#</a></h2>
+<section id="load-data">
+<h3>1. Load Data<a class="headerlink" href="#load-data" title="Link to this heading">#</a></h3>
+<p><strong>Data</strong> → <strong>From Table/Range</strong></p>
+</section>
+<section id="transform">
+<h3>2. Transform<a class="headerlink" href="#transform" title="Link to this heading">#</a></h3>
+<p>Power Query Editor opens</p>
+</section>
+<section id="apply-steps">
+<h3>3. Apply Steps<a class="headerlink" href="#apply-steps" title="Link to this heading">#</a></h3>
+<p>Each action creates a step</p>
+</section>
+<section id="close-load">
+<h3>4. Close &amp; Load<a class="headerlink" href="#close-load" title="Link to this heading">#</a></h3>
+<p>Data loads to Excel</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="common-transformations">
+<h2>Common Transformations<a class="headerlink" href="#common-transformations" title="Link to this heading">#</a></h2>
+<section id="remove-columns">
+<h3>1. Remove Columns<a class="headerlink" href="#remove-columns" title="Link to this heading">#</a></h3>
+<p><strong>Home</strong> → <strong>Remove Columns</strong></p>
+<p><strong>Use Case:</strong> Delete unnecessary fields</p>
+</section>
+<section id="filter-rows">
+<h3>2. Filter Rows<a class="headerlink" href="#filter-rows" title="Link to this heading">#</a></h3>
+<p>Click column header → <strong>Filter</strong></p>
+<p><strong>Use Case:</strong> Remove blanks, filter by value</p>
+</section>
+<section id="change-data-type">
+<h3>3. Change Data Type<a class="headerlink" href="#change-data-type" title="Link to this heading">#</a></h3>
+<p>Click column type icon</p>
+<p><strong>Options:</strong></p>
+<ul class="simple">
+<li><p>Text</p></li>
+<li><p>Whole Number</p></li>
+<li><p>Decimal Number</p></li>
+<li><p>Date</p></li>
+<li><p>Date/Time</p></li>
+</ul>
+</section>
+<section id="replace-values">
+<h3>4. Replace Values<a class="headerlink" href="#replace-values" title="Link to this heading">#</a></h3>
+<p><strong>Transform</strong> → <strong>Replace Values</strong></p>
+<p><strong>Example:</strong> Replace “N/A” with blank</p>
+</section>
+<section id="split-column">
+<h3>5. Split Column<a class="headerlink" href="#split-column" title="Link to this heading">#</a></h3>
+<p><strong>Transform</strong> → <strong>Split Column</strong></p>
+<p><strong>By Delimiter:</strong></p>
+<ul class="simple">
+<li><p>Comma</p></li>
+<li><p>Space</p></li>
+<li><p>Custom</p></li>
+</ul>
+<p><strong>By Position:</strong></p>
+<ul class="simple">
+<li><p>Number of characters</p></li>
+</ul>
+<p><strong>Use Case:</strong> Split “Last, First” into two columns</p>
+</section>
+<section id="merge-columns">
+<h3>6. Merge Columns<a class="headerlink" href="#merge-columns" title="Link to this heading">#</a></h3>
+<p>Select columns → <strong>Transform</strong> → <strong>Merge Columns</strong></p>
+<p><strong>Use Case:</strong> Combine first and last name</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="unpivoting-data">
+<h2>Unpivoting Data<a class="headerlink" href="#unpivoting-data" title="Link to this heading">#</a></h2>
+<p>Transform wide data to long format.</p>
+<section id="before-wide">
+<h3>Before (Wide):<a class="headerlink" href="#before-wide" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Product</p></th>
+<th class="head"><p>Jan</p></th>
+<th class="head"><p>Feb</p></th>
+<th class="head"><p>Mar</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Laptop</p></td>
+<td><p>100</p></td>
+<td><p>150</p></td>
+<td><p>120</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mouse</p></td>
+<td><p>50</p></td>
+<td><p>60</p></td>
+<td><p>55</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="after-long">
+<h3>After (Long):<a class="headerlink" href="#after-long" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Product</p></th>
+<th class="head"><p>Month</p></th>
+<th class="head"><p>Sales</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Laptop</p></td>
+<td><p>Jan</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>Laptop</p></td>
+<td><p>Feb</p></td>
+<td><p>150</p></td>
+</tr>
+<tr class="row-even"><td><p>Laptop</p></td>
+<td><p>Mar</p></td>
+<td><p>120</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mouse</p></td>
+<td><p>Jan</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-even"><td><p>Mouse</p></td>
+<td><p>Feb</p></td>
+<td><p>60</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mouse</p></td>
+<td><p>Mar</p></td>
+<td><p>55</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="how-to">
+<h3>How To<a class="headerlink" href="#how-to" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Select month columns</p></li>
+<li><p><strong>Transform</strong> → <strong>Unpivot Columns</strong></p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="merging-queries">
+<h2>Merging Queries<a class="headerlink" href="#merging-queries" title="Link to this heading">#</a></h2>
+<p>Combine data from multiple tables (like SQL JOIN).</p>
+<section id="types-of-merge">
+<h3>Types of Merge<a class="headerlink" href="#types-of-merge" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Left Outer</strong> - All from left, matching from right</p></li>
+<li><p><strong>Right Outer</strong> - All from right, matching from left</p></li>
+<li><p><strong>Full Outer</strong> - All from both</p></li>
+<li><p><strong>Inner</strong> - Only matching rows</p></li>
+<li><p><strong>Left Anti</strong> - Left without matches</p></li>
+<li><p><strong>Right Anti</strong> - Right without matches</p></li>
+</ul>
+</section>
+<section id="steps">
+<h3>Steps<a class="headerlink" href="#steps" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Home</strong> → <strong>Merge Queries</strong></p></li>
+<li><p>Select tables</p></li>
+<li><p>Choose join columns</p></li>
+<li><p>Select join type</p></li>
+<li><p>Click <strong>OK</strong></p></li>
+<li><p>Expand merged column</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="appending-queries">
+<h2>Appending Queries<a class="headerlink" href="#appending-queries" title="Link to this heading">#</a></h2>
+<p>Stack tables vertically (like SQL UNION).</p>
+<section id="use-case">
+<h3>Use Case<a class="headerlink" href="#use-case" title="Link to this heading">#</a></h3>
+<p>Combine monthly sales files into one table.</p>
+</section>
+<section id="id1">
+<h3>Steps<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Home</strong> → <strong>Append Queries</strong></p></li>
+<li><p>Select tables to combine</p></li>
+<li><p>Click <strong>OK</strong></p></li>
+</ol>
+<p><strong>Requirement:</strong> Same column structure</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="custom-columns">
+<h2>Custom Columns<a class="headerlink" href="#custom-columns" title="Link to this heading">#</a></h2>
+<p>Add calculated columns.</p>
+<section id="example-1-full-name">
+<h3>Example 1: Full Name<a class="headerlink" href="#example-1-full-name" title="Link to this heading">#</a></h3>
+<div class="highlight-m notranslate"><div class="highlight"><pre><span></span>[First Name] &amp; &quot; &quot; &amp; [Last Name]
+</pre></div>
+</div>
+</section>
+<section id="example-2-profit-margin">
+<h3>Example 2: Profit Margin<a class="headerlink" href="#example-2-profit-margin" title="Link to this heading">#</a></h3>
+<div class="highlight-m notranslate"><div class="highlight"><pre><span></span>([Revenue] - [Cost]) / [Revenue]
+</pre></div>
+</div>
+</section>
+<section id="example-3-age-from-birthdate">
+<h3>Example 3: Age from Birthdate<a class="headerlink" href="#example-3-age-from-birthdate" title="Link to this heading">#</a></h3>
+<div class="highlight-m notranslate"><div class="highlight"><pre><span></span>Duration.Days(DateTime.LocalNow() - [Birthdate]) / 365
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="conditional-columns">
+<h2>Conditional Columns<a class="headerlink" href="#conditional-columns" title="Link to this heading">#</a></h2>
+<p>Like IF statements.</p>
+<section id="example-categorize-sales">
+<h3>Example: Categorize Sales<a class="headerlink" href="#example-categorize-sales" title="Link to this heading">#</a></h3>
+<p><strong>Add Column</strong> → <strong>Conditional Column</strong></p>
+<p><strong>Logic:</strong></p>
+<ul class="simple">
+<li><p>If Sales &gt; 1000 → “High”</p></li>
+<li><p>Else if Sales &gt; 500 → “Medium”</p></li>
+<li><p>Else → “Low”</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="grouping-data">
+<h2>Grouping Data<a class="headerlink" href="#grouping-data" title="Link to this heading">#</a></h2>
+<p>Aggregate data (like SQL GROUP BY).</p>
+<section id="example-total-sales-by-product">
+<h3>Example: Total Sales by Product<a class="headerlink" href="#example-total-sales-by-product" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Transform</strong> → <strong>Group By</strong></p></li>
+<li><p>Group by: Product</p></li>
+<li><p>New column: Total Sales</p></li>
+<li><p>Operation: Sum</p></li>
+<li><p>Column: Sales</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-sources">
+<h2>Data Sources<a class="headerlink" href="#data-sources" title="Link to this heading">#</a></h2>
+<p>Power Query can import from:</p>
+<section id="files">
+<h3>Files<a class="headerlink" href="#files" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Excel</p></li>
+<li><p>CSV</p></li>
+<li><p>Text</p></li>
+<li><p>JSON</p></li>
+<li><p>XML</p></li>
+</ul>
+</section>
+<section id="databases">
+<h3>Databases<a class="headerlink" href="#databases" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>SQL Server</p></li>
+<li><p>MySQL</p></li>
+<li><p>PostgreSQL</p></li>
+<li><p>Oracle</p></li>
+</ul>
+</section>
+<section id="web">
+<h3>Web<a class="headerlink" href="#web" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Web pages</p></li>
+<li><p>APIs</p></li>
+<li><p>SharePoint</p></li>
+</ul>
+</section>
+<section id="cloud">
+<h3>Cloud<a class="headerlink" href="#cloud" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Azure</p></li>
+<li><p>Google Sheets</p></li>
+<li><p>Salesforce</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="m-language-basics">
+<h2>M Language Basics<a class="headerlink" href="#m-language-basics" title="Link to this heading">#</a></h2>
+<p>Power Query uses M language.</p>
+<section id="view-code">
+<h3>View Code<a class="headerlink" href="#view-code" title="Link to this heading">#</a></h3>
+<p><strong>View</strong> → <strong>Advanced Editor</strong></p>
+</section>
+<section id="example-query">
+<h3>Example Query<a class="headerlink" href="#example-query" title="Link to this heading">#</a></h3>
+<div class="highlight-m notranslate"><div class="highlight"><pre><span></span>let
+    Source = Excel.CurrentWorkbook(){
+        [Name=&quot;Sales&quot;]}[Content],
+    FilteredRows = Table.SelectRows(
+        Source, 
+        each [Amount] &gt; 100
+    ),
+    ChangedType = Table.TransformColumnTypes(
+        FilteredRows,
+        {{&quot;Amount&quot;, type number}}
+    )
+in
+    ChangedType
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h2>
+<section id="data-preparation">
+<h3>1. Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading">#</a></h3>
+<p>✅ Use consistent headers<br />
+✅ Remove extra rows above data<br />
+✅ Ensure data types are correct<br />
+✅ Handle nulls appropriately</p>
+</section>
+<section id="query-design">
+<h3>2. Query Design<a class="headerlink" href="#query-design" title="Link to this heading">#</a></h3>
+<p>✅ Name queries descriptively<br />
+✅ Add comments to steps<br />
+✅ Organize queries in groups<br />
+✅ Disable load for intermediate queries</p>
+</section>
+<section id="performance">
+<h3>3. Performance<a class="headerlink" href="#performance" title="Link to this heading">#</a></h3>
+<p>✅ Filter early (reduce rows)<br />
+✅ Remove unnecessary columns<br />
+✅ Use query folding when possible<br />
+✅ Avoid complex M code</p>
+</section>
+<section id="maintenance">
+<h3>4. Maintenance<a class="headerlink" href="#maintenance" title="Link to this heading">#</a></h3>
+<p>✅ Document transformations<br />
+✅ Test with sample data<br />
+✅ Version control queries<br />
+✅ Refresh regularly</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="common-use-cases">
+<h2>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Link to this heading">#</a></h2>
+<section id="combining-monthly-files">
+<h3>1. Combining Monthly Files<a class="headerlink" href="#combining-monthly-files" title="Link to this heading">#</a></h3>
+<p>Append all CSV files from a folder.</p>
+<p><strong>Steps:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Data</strong> → <strong>From Folder</strong></p></li>
+<li><p>Select folder</p></li>
+<li><p><strong>Combine &amp; Transform</strong></p></li>
+</ol>
+</section>
+<section id="cleaning-messy-data">
+<h3>2. Cleaning Messy Data<a class="headerlink" href="#cleaning-messy-data" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Remove blank rows</p></li>
+<li><p>Trim whitespace</p></li>
+<li><p>Fix data types</p></li>
+<li><p>Replace errors</p></li>
+</ul>
+</section>
+<section id="creating-date-table">
+<h3>3. Creating Date Table<a class="headerlink" href="#creating-date-table" title="Link to this heading">#</a></h3>
+<p>Generate calendar table for analysis.</p>
+<div class="highlight-m notranslate"><div class="highlight"><pre><span></span>let
+    StartDate = #date(2023, 1, 1),
+    EndDate = #date(2023, 12, 31),
+    NumberOfDays = Duration.Days(
+        EndDate - StartDate
+    ) + 1,
+    Dates = List.Dates(
+        StartDate, 
+        NumberOfDays, 
+        #duration(1,0,0,0)
+    ),
+    #&quot;Converted to Table&quot; = 
+        Table.FromList(
+            Dates, 
+            Splitter.SplitByNothing()
+        )
+in
+    #&quot;Converted to Table&quot;
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="keyboard-shortcuts">
+<h2>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Action</p></th>
+<th class="head"><p>Shortcut</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Open Query Editor</p></td>
+<td><p>Alt+A+Q+E</p></td>
+</tr>
+<tr class="row-odd"><td><p>Refresh All</p></td>
+<td><p>Ctrl+Alt+F5</p></td>
+</tr>
+<tr class="row-even"><td><p>Close &amp; Load</p></td>
+<td><p>Alt+H+C+L</p></td>
+</tr>
+<tr class="row-odd"><td><p>Add Custom Column</p></td>
+<td><p>Alt+A+C+C</p></td>
+</tr>
+<tr class="row-even"><td><p>Group By</p></td>
+<td><p>Alt+T+G</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="practice-exercises">
+<h2>Practice Exercises<a class="headerlink" href="#practice-exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1">
+<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h3>
+<p>Import CSV file and:</p>
+<ul class="simple">
+<li><p>Remove blank rows</p></li>
+<li><p>Change date column to Date type</p></li>
+<li><p>Filter for 2023 only</p></li>
+</ul>
+</section>
+<section id="exercise-2">
+<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h3>
+<p>Unpivot monthly sales data from
+wide to long format.</p>
+</section>
+<section id="exercise-3">
+<h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h3>
+<p>Merge customer table with orders table
+on Customer ID.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="tips-for-success">
+<h2>Tips for Success<a class="headerlink" href="#tips-for-success" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Start Simple</strong> - Learn basic transforms first</p></li>
+<li><p><strong>Use UI First</strong> - Then learn M code</p></li>
+<li><p><strong>Save Queries</strong> - Reuse transformations</p></li>
+<li><p><strong>Test Incrementally</strong> - Check each step</p></li>
+<li><p><strong>Document Steps</strong> - Add descriptions</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="common-mistakes">
+<h2>Common Mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
+<p>❌ Not promoting headers<br />
+❌ Wrong data types<br />
+❌ Not handling nulls<br />
+❌ Loading unnecessary queries<br />
+❌ Not refreshing connections</p>
+</section>
+<hr class="docutils" />
+<section id="power-query-vs-formulas">
+<h2>Power Query vs Formulas<a class="headerlink" href="#power-query-vs-formulas" title="Link to this heading">#</a></h2>
+<section id="use-power-query-when">
+<h3>Use Power Query When:<a class="headerlink" href="#use-power-query-when" title="Link to this heading">#</a></h3>
+<p>✅ Importing external data<br />
+✅ Combining multiple files<br />
+✅ Complex transformations<br />
+✅ Repeatable processes</p>
+</section>
+<section id="use-formulas-when">
+<h3>Use Formulas When:<a class="headerlink" href="#use-formulas-when" title="Link to this heading">#</a></h3>
+<p>✅ Simple calculations<br />
+✅ Row-by-row logic<br />
+✅ Dynamic updates<br />
+✅ Quick one-off tasks</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<p>After mastering Power Query:</p>
+<ol class="arabic simple">
+<li><p>✅ Learn DAX (Power Pivot)</p></li>
+<li><p>✅ Explore Power BI</p></li>
+<li><p>✅ Automate with VBA</p></li>
+<li><p>✅ Connect to databases</p></li>
+<li><p>✅ Build data pipelines</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Resources:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/power-query/">Microsoft Power Query Docs</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/powerquery-m/">M Language Reference</a></p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Next:</strong> <a class="reference internal" href="README.html"><span class="std std-doc">README</span></a> →</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./07_excel_for_analysts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_python_excel_integration.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Python-Excel Integration</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../08_data_cleaning_projects/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">🧹 Data Cleaning Projects</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-power-query">What is Power Query?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-power-query">Accessing Power Query</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#excel-2016">Excel 2016+</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-buttons">Key Buttons</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-workflow">Basic Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">1. Load Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transform">2. Transform</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-steps">3. Apply Steps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#close-load">4. Close &amp; Load</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-transformations">Common Transformations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-columns">1. Remove Columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-rows">2. Filter Rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-data-type">3. Change Data Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-values">4. Replace Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-column">5. Split Column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-columns">6. Merge Columns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unpivoting-data">Unpivoting Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-wide">Before (Wide):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#after-long">After (Long):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to">How To</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-queries">Merging Queries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-merge">Types of Merge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps">Steps</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-queries">Appending Queries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case">Use Case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Steps</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-columns">Custom Columns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-full-name">Example 1: Full Name</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-profit-margin">Example 2: Profit Margin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-age-from-birthdate">Example 3: Age from Birthdate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-columns">Conditional Columns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-categorize-sales">Example: Categorize Sales</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-data">Grouping Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-total-sales-by-product">Example: Total Sales by Product</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#files">Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#databases">Databases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web">Web</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloud">Cloud</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#m-language-basics">M Language Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-code">View Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-query">Example Query</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">1. Data Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-design">2. Query Design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance">3. Performance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maintenance">4. Maintenance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-use-cases">Common Use Cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-monthly-files">1. Combining Monthly Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-messy-data">2. Cleaning Messy Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-date-table">3. Creating Date Table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">Practice Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-for-success">Tips for Success</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common Mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-query-vs-formulas">Power Query vs Formulas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-power-query-when">Use Power Query When:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-formulas-when">Use Formulas When:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Wasim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

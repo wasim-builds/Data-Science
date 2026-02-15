@@ -1,0 +1,1151 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>CTEs and Complex Joins &#8212; Data Analyst Roadmap</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06_sql_for_analytics/04_ctes_and_complex_joins';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SQL Practice Exercises" href="05_sql_practice_exercises.html" />
+    <link rel="prev" title="Window Functions in SQL" href="03_window_functions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://cdn-icons-png.flaticon.com/512/2620/2620958.png" class="logo__image only-light" alt="Data Analyst Roadmap - Home"/>
+    <script>document.write(`<img src="https://cdn-icons-png.flaticon.com/512/2620/2620958.png" class="logo__image only-dark" alt="Data Analyst Roadmap - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the Data Analyst Roadmap 🚀
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">00 Setup</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00_setup/README.html">🛠️ Module 00: Environment Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00_setup/jupyter_setup.html">Jupyter Notebook Setup &amp; Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00_setup/python_setup.html">Python &amp; Anaconda Setup Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">01 Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/README.html">🐍 Module 01: Python Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/functions.html">Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/loops.html">Python Loops and Control Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/practice_questions.html">Python Basics - Practice Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_python_basics/variables.html">Python Variables and Data Types</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">02 Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/README.html">🔢 Module 02: NumPy for Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/01_numpy_basics.html">NumPy Basics - Arrays, Data Types, and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/02_array_operations.html">NumPy Array Operations - Mathematics, Broadcasting &amp; Vectorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/03_indexing_slicing.html">NumPy Indexing and Slicing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_numpy/04_statistics.html">NumPy Statistics and Aggregations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">03 Pandas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/README.html">🐼 Pandas for Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/01_pandas_intro.html">Introduction to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/02_data_manipulation.html">Data Manipulation with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/03_groupby_aggregation.html">Grouping and Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/04_merging_joining.html">Merging and Joining Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/05_time_series.html">Time Series with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_pandas/06_advanced_filtering.html">Advanced Filtering and Querying</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">04 Data Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/README.html">📊 Data Visualization with Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/01_matplotlib_basics.html">Matplotlib Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/02_seaborn_advanced.html">Advanced Visualization with Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/03_plotly_interactive.html">Interactive Visualization with Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_data_visualization/05_advanced_customization.html">Advanced Plotly Customization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">05 Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../05_statistics/01_descriptive_stats.html">Descriptive Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_statistics/02_inferential_stats.html">Inferential Statistics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">06 Sql For Analytics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="README.html">📊 SQL for Analytics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_sql_basics.html">SQL for Analytics (with Python)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_advanced_queries.html">Advanced SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_window_functions.html">Window Functions in SQL</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">CTEs and Complex Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_sql_practice_exercises.html">SQL Practice Exercises</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">07 Excel For Analysts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../07_excel_for_analysts/README.html">📊 Excel for Data Analysts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_excel_for_analysts/01_excel_concepts.html">Excel for Data Analysts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_excel_for_analysts/02_advanced_formulas.html">Advanced Excel Formulas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_excel_for_analysts/03_pivot_tables_deep_dive.html">Pivot Tables Deep Dive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_excel_for_analysts/04_python_excel_integration.html">Python-Excel Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_excel_for_analysts/05_power_query_basics.html">Power Query Basics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">08 Data Cleaning Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/README.html">🧹 Data Cleaning Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/01_cleaning_walkthrough.html">Data Cleaning Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/02_handling_missing_data.html">Handling Missing Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/03_outlier_detection.html">Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_data_cleaning_projects/04_text_cleaning.html">Text Cleaning and Manipulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">09 End To End Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../09_end_to_end_projects/README.html">💼 Module 09: End-to-End Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_end_to_end_projects/01_eda_project.html">End-to-End EDA Project: Tips Dataset</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">10 Machine Learning Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/README.html">🤖 Machine Learning Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/01_ml_intro.html">Introduction to Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/02_linear_regression.html">Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/03_logistic_regression.html">Logistic Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/04_model_evaluation.html">Model Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_machine_learning_basics/05_feature_engineering.html">Feature Engineering</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/wasim/Data-Science/blob/main/data-analyst-roadmap/06_sql_for_analytics/04_ctes_and_complex_joins.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/wasim/Data-Science" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/wasim/Data-Science/issues/new?title=Issue%20on%20page%20%2F06_sql_for_analytics/04_ctes_and_complex_joins.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/06_sql_for_analytics/04_ctes_and_complex_joins.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>CTEs and Complex Joins</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics-covered">Topics Covered</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-create-multiple-tables">Setup: Create Multiple Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-table-expressions-ctes">1. Common Table Expressions (CTEs)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-ctes">2. Recursive CTEs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-joins">3. Self Joins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-vs-outer-joins">4. INNER vs OUTER Joins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-table-joins">5. Multiple Table Joins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-join">6. Cross Join</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-cte-example">7. Complex CTE Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">Practice Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a class="reference external" href="https://colab.research.google.com/github/wasim/Data-Science/blob/main/data-analyst-roadmap/06_sql_for_analytics/04_ctes_and_complex_joins.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="ctes-and-complex-joins">
+<h1>CTEs and Complex Joins<a class="headerlink" href="#ctes-and-complex-joins" title="Link to this heading">#</a></h1>
+<p>Master advanced SQL joining techniques.</p>
+<section id="topics-covered">
+<h2>Topics Covered<a class="headerlink" href="#topics-covered" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Common Table Expressions (CTEs)</p></li>
+<li><p>Recursive CTEs</p></li>
+<li><p>Self joins</p></li>
+<li><p>Multiple table joins</p></li>
+<li><p>LEFT/RIGHT/FULL OUTER joins</p></li>
+<li><p>Cross joins</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;:memory:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="setup-create-multiple-tables">
+<h2>Setup: Create Multiple Tables<a class="headerlink" href="#setup-create-multiple-tables" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="c1"># Employees table</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">CREATE TABLE employees (</span>
+<span class="s1">    emp_id INTEGER PRIMARY KEY,</span>
+<span class="s1">    name TEXT,</span>
+<span class="s1">    dept_id INTEGER,</span>
+<span class="s1">    manager_id INTEGER,</span>
+<span class="s1">    salary INTEGER</span>
+<span class="s1">)</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="c1"># Departments table</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">CREATE TABLE departments (</span>
+<span class="s1">    dept_id INTEGER PRIMARY KEY,</span>
+<span class="s1">    dept_name TEXT,</span>
+<span class="s1">    location TEXT</span>
+<span class="s1">)</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="c1"># Projects table</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">CREATE TABLE projects (</span>
+<span class="s1">    project_id INTEGER PRIMARY KEY,</span>
+<span class="s1">    project_name TEXT,</span>
+<span class="s1">    dept_id INTEGER,</span>
+<span class="s1">    budget INTEGER</span>
+<span class="s1">)</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="c1"># Insert data</span>
+<span class="n">employees</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">95000</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">85000</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">80000</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">70000</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;Eve&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">75000</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;Frank&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">60000</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">departments</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Engineering&#39;</span><span class="p">,</span> <span class="s1">&#39;Building A&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Marketing&#39;</span><span class="p">,</span> <span class="s1">&#39;Building B&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;HR&#39;</span><span class="p">,</span> <span class="s1">&#39;Building C&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Finance&#39;</span><span class="p">,</span> <span class="s1">&#39;Building D&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">projects</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Website Redesign&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">50000</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Mobile App&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">80000</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Ad Campaign&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">30000</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Recruitment&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20000</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span>
+    <span class="s1">&#39;INSERT INTO employees VALUES (?,?,?,?,?)&#39;</span><span class="p">,</span> 
+    <span class="n">employees</span>
+<span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span>
+    <span class="s1">&#39;INSERT INTO departments VALUES (?,?,?)&#39;</span><span class="p">,</span> 
+    <span class="n">departments</span>
+<span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span>
+    <span class="s1">&#39;INSERT INTO projects VALUES (?,?,?,?)&#39;</span><span class="p">,</span> 
+    <span class="n">projects</span>
+<span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="common-table-expressions-ctes">
+<h2>1. Common Table Expressions (CTEs)<a class="headerlink" href="#common-table-expressions-ctes" title="Link to this heading">#</a></h2>
+<p>CTEs create temporary named result sets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple CTE</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">WITH high_earners AS (</span>
+<span class="s1">    SELECT </span>
+<span class="s1">        emp_id,</span>
+<span class="s1">        name,</span>
+<span class="s1">        salary</span>
+<span class="s1">    FROM employees</span>
+<span class="s1">    WHERE salary &gt; 75000</span>
+<span class="s1">)</span>
+<span class="s1">SELECT </span>
+<span class="s1">    name,</span>
+<span class="s1">    salary</span>
+<span class="s1">FROM high_earners</span>
+<span class="s1">ORDER BY salary DESC</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple CTEs</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">WITH </span>
+<span class="s1">dept_stats AS (</span>
+<span class="s1">    SELECT </span>
+<span class="s1">        dept_id,</span>
+<span class="s1">        COUNT(*) AS emp_count,</span>
+<span class="s1">        AVG(salary) AS avg_salary</span>
+<span class="s1">    FROM employees</span>
+<span class="s1">    WHERE dept_id IS NOT NULL</span>
+<span class="s1">    GROUP BY dept_id</span>
+<span class="s1">),</span>
+<span class="s1">project_stats AS (</span>
+<span class="s1">    SELECT </span>
+<span class="s1">        dept_id,</span>
+<span class="s1">        COUNT(*) AS project_count,</span>
+<span class="s1">        SUM(budget) AS total_budget</span>
+<span class="s1">    FROM projects</span>
+<span class="s1">    GROUP BY dept_id</span>
+<span class="s1">)</span>
+<span class="s1">SELECT </span>
+<span class="s1">    d.dept_name,</span>
+<span class="s1">    ds.emp_count,</span>
+<span class="s1">    ds.avg_salary,</span>
+<span class="s1">    ps.project_count,</span>
+<span class="s1">    ps.total_budget</span>
+<span class="s1">FROM departments d</span>
+<span class="s1">LEFT JOIN dept_stats ds </span>
+<span class="s1">    ON d.dept_id = ds.dept_id</span>
+<span class="s1">LEFT JOIN project_stats ps </span>
+<span class="s1">    ON d.dept_id = ps.dept_id</span>
+<span class="s1">ORDER BY d.dept_name</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="recursive-ctes">
+<h2>2. Recursive CTEs<a class="headerlink" href="#recursive-ctes" title="Link to this heading">#</a></h2>
+<p>For hierarchical data (org charts, etc.).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build org hierarchy</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">WITH RECURSIVE org_chart AS (</span>
+<span class="s1">    -- Base case: top-level managers</span>
+<span class="s1">    SELECT </span>
+<span class="s1">        emp_id,</span>
+<span class="s1">        name,</span>
+<span class="s1">        manager_id,</span>
+<span class="s1">        1 AS level,</span>
+<span class="s1">        name AS path</span>
+<span class="s1">    FROM employees</span>
+<span class="s1">    WHERE manager_id IS NULL</span>
+<span class="s1">    </span>
+<span class="s1">    UNION ALL</span>
+<span class="s1">    </span>
+<span class="s1">    -- Recursive case: employees with managers</span>
+<span class="s1">    SELECT </span>
+<span class="s1">        e.emp_id,</span>
+<span class="s1">        e.name,</span>
+<span class="s1">        e.manager_id,</span>
+<span class="s1">        oc.level + 1,</span>
+<span class="s1">        oc.path || &#39; -&gt; &#39; || e.name</span>
+<span class="s1">    FROM employees e</span>
+<span class="s1">    JOIN org_chart oc </span>
+<span class="s1">        ON e.manager_id = oc.emp_id</span>
+<span class="s1">)</span>
+<span class="s1">SELECT </span>
+<span class="s1">    emp_id,</span>
+<span class="s1">    name,</span>
+<span class="s1">    level,</span>
+<span class="s1">    path</span>
+<span class="s1">FROM org_chart</span>
+<span class="s1">ORDER BY level, name</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="self-joins">
+<h2>3. Self Joins<a class="headerlink" href="#self-joins" title="Link to this heading">#</a></h2>
+<p>Join a table to itself.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find employee-manager pairs</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">SELECT </span>
+<span class="s1">    e.name AS employee,</span>
+<span class="s1">    e.salary AS emp_salary,</span>
+<span class="s1">    m.name AS manager,</span>
+<span class="s1">    m.salary AS mgr_salary</span>
+<span class="s1">FROM employees e</span>
+<span class="s1">LEFT JOIN employees m </span>
+<span class="s1">    ON e.manager_id = m.emp_id</span>
+<span class="s1">ORDER BY e.name</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find employees in same department</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">SELECT DISTINCT</span>
+<span class="s1">    e1.name AS employee1,</span>
+<span class="s1">    e2.name AS employee2,</span>
+<span class="s1">    e1.dept_id AS department</span>
+<span class="s1">FROM employees e1</span>
+<span class="s1">JOIN employees e2 </span>
+<span class="s1">    ON e1.dept_id = e2.dept_id</span>
+<span class="s1">    AND e1.emp_id &lt; e2.emp_id</span>
+<span class="s1">WHERE e1.dept_id IS NOT NULL</span>
+<span class="s1">ORDER BY e1.dept_id, e1.name</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inner-vs-outer-joins">
+<h2>4. INNER vs OUTER Joins<a class="headerlink" href="#inner-vs-outer-joins" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># INNER JOIN - only matching rows</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">SELECT </span>
+<span class="s1">    e.name,</span>
+<span class="s1">    d.dept_name</span>
+<span class="s1">FROM employees e</span>
+<span class="s1">INNER JOIN departments d </span>
+<span class="s1">    ON e.dept_id = d.dept_id</span>
+<span class="s1">ORDER BY e.name</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;INNER JOIN (only employees with dept):&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LEFT JOIN - all from left table</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">SELECT </span>
+<span class="s1">    e.name,</span>
+<span class="s1">    d.dept_name</span>
+<span class="s1">FROM employees e</span>
+<span class="s1">LEFT JOIN departments d </span>
+<span class="s1">    ON e.dept_id = d.dept_id</span>
+<span class="s1">ORDER BY e.name</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LEFT JOIN (all employees):&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># RIGHT JOIN (simulated with LEFT)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">SELECT </span>
+<span class="s1">    e.name,</span>
+<span class="s1">    d.dept_name</span>
+<span class="s1">FROM departments d</span>
+<span class="s1">LEFT JOIN employees e </span>
+<span class="s1">    ON e.dept_id = d.dept_id</span>
+<span class="s1">ORDER BY d.dept_name</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RIGHT JOIN (all departments):&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multiple-table-joins">
+<h2>5. Multiple Table Joins<a class="headerlink" href="#multiple-table-joins" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Join all three tables</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">SELECT </span>
+<span class="s1">    e.name AS employee,</span>
+<span class="s1">    d.dept_name,</span>
+<span class="s1">    d.location,</span>
+<span class="s1">    p.project_name,</span>
+<span class="s1">    p.budget</span>
+<span class="s1">FROM employees e</span>
+<span class="s1">LEFT JOIN departments d </span>
+<span class="s1">    ON e.dept_id = d.dept_id</span>
+<span class="s1">LEFT JOIN projects p </span>
+<span class="s1">    ON d.dept_id = p.dept_id</span>
+<span class="s1">ORDER BY e.name, p.project_name</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cross-join">
+<h2>6. Cross Join<a class="headerlink" href="#cross-join" title="Link to this heading">#</a></h2>
+<p>Cartesian product of two tables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># All employee-project combinations</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">SELECT </span>
+<span class="s1">    e.name AS employee,</span>
+<span class="s1">    p.project_name</span>
+<span class="s1">FROM employees e</span>
+<span class="s1">CROSS JOIN projects p</span>
+<span class="s1">WHERE e.dept_id IS NOT NULL</span>
+<span class="s1">ORDER BY e.name, p.project_name</span>
+<span class="s1">LIMIT 10</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="complex-cte-example">
+<h2>7. Complex CTE Example<a class="headerlink" href="#complex-cte-example" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comprehensive department analysis</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">WITH </span>
+<span class="s1">-- Calculate department metrics</span>
+<span class="s1">dept_metrics AS (</span>
+<span class="s1">    SELECT </span>
+<span class="s1">        d.dept_id,</span>
+<span class="s1">        d.dept_name,</span>
+<span class="s1">        COUNT(e.emp_id) AS emp_count,</span>
+<span class="s1">        COALESCE(AVG(e.salary), 0) </span>
+<span class="s1">            AS avg_salary,</span>
+<span class="s1">        COALESCE(SUM(e.salary), 0) </span>
+<span class="s1">            AS total_payroll</span>
+<span class="s1">    FROM departments d</span>
+<span class="s1">    LEFT JOIN employees e </span>
+<span class="s1">        ON d.dept_id = e.dept_id</span>
+<span class="s1">    GROUP BY d.dept_id, d.dept_name</span>
+<span class="s1">),</span>
+<span class="s1">-- Calculate project metrics</span>
+<span class="s1">project_metrics AS (</span>
+<span class="s1">    SELECT </span>
+<span class="s1">        dept_id,</span>
+<span class="s1">        COUNT(*) AS project_count,</span>
+<span class="s1">        SUM(budget) AS total_budget</span>
+<span class="s1">    FROM projects</span>
+<span class="s1">    GROUP BY dept_id</span>
+<span class="s1">),</span>
+<span class="s1">-- Combine metrics</span>
+<span class="s1">combined AS (</span>
+<span class="s1">    SELECT </span>
+<span class="s1">        dm.dept_name,</span>
+<span class="s1">        dm.emp_count,</span>
+<span class="s1">        dm.avg_salary,</span>
+<span class="s1">        dm.total_payroll,</span>
+<span class="s1">        COALESCE(pm.project_count, 0) </span>
+<span class="s1">            AS projects,</span>
+<span class="s1">        COALESCE(pm.total_budget, 0) </span>
+<span class="s1">            AS budget</span>
+<span class="s1">    FROM dept_metrics dm</span>
+<span class="s1">    LEFT JOIN project_metrics pm </span>
+<span class="s1">        ON dm.dept_id = pm.dept_id</span>
+<span class="s1">)</span>
+<span class="s1">SELECT </span>
+<span class="s1">    dept_name,</span>
+<span class="s1">    emp_count,</span>
+<span class="s1">    ROUND(avg_salary, 2) AS avg_salary,</span>
+<span class="s1">    total_payroll,</span>
+<span class="s1">    projects,</span>
+<span class="s1">    budget,</span>
+<span class="s1">    CASE </span>
+<span class="s1">        WHEN emp_count &gt; 0 </span>
+<span class="s1">        THEN ROUND(</span>
+<span class="s1">            CAST(budget AS FLOAT) / emp_count, </span>
+<span class="s1">            2</span>
+<span class="s1">        )</span>
+<span class="s1">        ELSE 0 </span>
+<span class="s1">    END AS budget_per_employee</span>
+<span class="s1">FROM combined</span>
+<span class="s1">ORDER BY total_payroll DESC</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="practice-exercises">
+<h2>Practice Exercises<a class="headerlink" href="#practice-exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1">
+<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h3>
+<p>Find employees who earn more than their manager.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2">
+<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h3>
+<p>List departments with no employees.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3">
+<h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h3>
+<p>Create a CTE to find the department with
+highest average salary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h2>
+<p>✅ <strong>CTEs</strong> - Clean, readable complex queries<br />
+✅ <strong>Recursive CTEs</strong> - Handle hierarchies<br />
+✅ <strong>Self joins</strong> - Compare rows in same table<br />
+✅ <strong>INNER/OUTER joins</strong> - Control matching<br />
+✅ <strong>Multiple joins</strong> - Combine many tables</p>
+<p><strong>Next:</strong> Practice Exercises →</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./06_sql_for_analytics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_window_functions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Window Functions in SQL</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_sql_practice_exercises.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SQL Practice Exercises</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics-covered">Topics Covered</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-create-multiple-tables">Setup: Create Multiple Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-table-expressions-ctes">1. Common Table Expressions (CTEs)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-ctes">2. Recursive CTEs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#self-joins">3. Self Joins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-vs-outer-joins">4. INNER vs OUTER Joins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-table-joins">5. Multiple Table Joins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-join">6. Cross Join</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-cte-example">7. Complex CTE Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-exercises">Practice Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Wasim
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
